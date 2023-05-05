@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(168, 173, 167);
+            display: flex;
+            justify-content: center;
+        }
+
+        .a {
+            position: relative;
+            width: 1100px;
+            height: 2500px;
+            /* background-color: rgb(53, 99, 99); */
+            overflow: hidden;
+        }
+
+        .b {
+            position: absolute;
+            left: 50%;
+            top: 700px;
+            font: 900 50px 'Vijaya';
+            transition: 1s;
+            transform: translateX(-50%);
+        }
+
+        .p1 {
+            position: absolute;
+            top: 200px;
+            right: 50px;
+            width: 300px;
+            transform: rotateZ(20deg);
+        }
+
+        .t {
+            position: fixed;
+            opacity: 1;
+            transition: .5s;
+        }
+
+        .t1 {
+            position: absolute;
+            top: 140px;
+            width: 500px;
+            font: 600 50px '';
+        }
+
+        .t2 {
+            position: absolute;
+            top: 250px;
+            width: 500px;
+            font: 600 25px '';
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        .p2 {
+            position: absolute;
+            top: 840px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+        }
+
+        .c {
+            width: 300px;
+            position: absolute;
+            top: 840px;
+            left: -300px;
+            font: 400 22px "";
+            transition: 1s;
+        }
+
+        .d {
+            width: 300px;
+            position: absolute;
+            right: -300px;
+            top: 840px;
+            font: 400 22px "";
+            transition: 1s;
+        }
+
+        .line {
+            position: absolute;
+            top: 1300px;
+            width: 0;
+            height: 5px;
+            transition: .5s;
+            background-color: black;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .line2 {
+            width: 5px;
+            height: 0;
+            background-color: black;
+            box-shadow: 2px 2px 5px #000;
+            transition: .7s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a">
+        <div class="t">
+            <p class="t1">GOAT</p>
+            <p class="t2">Time is like a river, the left bank is unforgettable memories, the right bank is worth
+                grasping the youth, in the middle of the fast flowing, is young faint sad. There are many good things in
+                the world.</p>
+        </div>
+        <img src="2.png" class="p1">
+        <img src="3.png" class="p2">
+        <p class="b">The front end Caveolae of goat</p>
+        <p class="c">My loneliness in the complicated world, there is often an emotion hard to let go, that is
+            loneliness. The real loneliness is not the groaning after food and clothing. Loneliness is the radiation of
+            soul, the loneliness of reason, the height of thought and the realm of life.</p>
+        <p class="d">The soloist of thought is lonely. Truly lonely people, must like quiet understanding, good at
+            thinking, insightful, unique, so, often too high cold. He doesn't want to live only for his own soul and
+            insight, but it's hard for him to integrate into the noise.</p>
+        <!-- 线 -->
+        <div class="line">
+            <div class="line2" style="--i:1"></div>
+            <div class="line2" style="--i:3"></div>
+            <div class="line2" style="--i:2"></div>
+            <div class="line2" style="--i:4"></div>
+            <div class="line2" style="--i:3"></div>
+            <div class="line2" style="--i:1"></div>
+        </div>
+    </div>
+</body>
+<script>
+    let t = document.querySelector(".t")
+    let c = document.querySelector(".c")
+    let d = document.querySelector(".d")
+    let line = document.querySelector(".line")
+    let p2 = document.querySelector(".p2")
+    let line2 = document.getElementsByClassName("line2")
+    // 滚轮事件（重点）
+    window.addEventListener('scroll', function () {
+        // window.srcollY是获取滚轮的值
+        console.log(window.scrollY.le)
+        //alert(window.scrollY)   //srcollY最后面的这个Y必须是大写的
+        let opacity = 1 + window.scrollY / -500  //计算一下获取一个在1左右的值拿来当透明度
+        let opacity2 = (1 + window.scrollY / -300) * -1
+        t.style.opacity = opacity
+        // p2就是下面那张图片，一开始的时候他的值是1，但是这里需要他在600左右才显示为1，所有还要乘一个负1，
+        //滚轮越往下值越小，然后会小于0，这是负负得正刚好可以让透明度变为1（多余的自动默认为1）
+        p2.style.opacity = opacity2
+        var top = window.scrollY
+        if (top >= 600) {
+            // alert()
+            c.style.left = 0 + "px"
+            d.style.right = 0 + "px"
+            line.style.width = 1200 + "px"
+        }
+        if (top >= 1150) {
+            for (i = 0; i < line2.length; i++) {
+                line2[i].style.height = "calc(var(--i)*" + 40 + "px)";
+            }
+        }
+    })
+</script>
+
+</html>

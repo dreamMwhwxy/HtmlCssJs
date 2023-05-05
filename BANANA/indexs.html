@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>山羊の前端小窝</title>
+<!-- 引入字体图标 -->
+<link rel="stylesheet" href="./download_4/font_jvcvbwruwxp/iconfont.css">
+<style>
+* {
+padding: 0;
+margin: 0;
+list-style: none;
+text-decoration: none;
+}
+
+@font-face {
+font-family: 'banana';
+src: url(./font/MedulaOne-Regular.ttf);
+}
+
+@font-face {
+font-family: 'Simonetta';
+src: url(./font/Simonetta-Black.ttf);
+}
+
+body {
+background-color: #E8D231;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+.shell {
+position: relative;
+width: 1433px;
+height: 780px;
+background: #F5DD2B;
+box-shadow: 0px 4px 116px 30px rgba(0, 0, 0, 0.25);
+border-radius: 30px;
+color: #000;
+transition: .2s;
+}
+.title h2 {
+position: absolute;
+width: 560px;
+height: 42px;
+font: 300 32px 'Simonetta';
+line-height: 40px;
+text-align: center;
+letter-spacing: 0.15em;
+top: 30px;
+left: 50%;
+transform: translateX(-50%);
+line-height: 30px;
+transition: .3s;
+}
+.slide {
+position: relative;
+left: 30px;
+top: 50%;
+width: 30px;
+transform: translateY(-50%);
+height: 60%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-direction: column;
+}
+.iconfont {
+font-size: 37px;
+position: relative;
+}
+.box {
+content: '';
+width: 4px;
+height: 100px;
+background: #000;
+position: absolute;
+display: block;
+left: 50%;
+transform: translateX(-50%);
+}
+.icon-arrow-up .box {
+top: 4px;
+}
+.icon-arrow-down .box {
+bottom: 4px;
+}
+.bottons {
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-direction: column;
+width: 100%;
+height: 70px;
+}
+.botton {
+width: 18px;
+height: 18px;
+background: #000000;
+border-radius: 50%;
+transition: .3s;
+position: relative;
+}
+.one {
+width: 11px;
+height: 11px;
+background: #F5DD2B;
+border: 7px solid #000000;
+}
+.two span {
+color: #fff;
+opacity: 0;
+}
+.line {
+width: 40px;
+height: 3px;
+background: #000;
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+left: 25px;
+border-radius: 10px;
+}
+.two .line {
+background: #fff;
+opacity: 0;
+}
+.botton span {
+position: absolute;
+font-size: 26px;
+top: 50%;
+transform: translateY(-55%);
+left: 70px;
+}
+.main {
+position: relative;
+top: -50px;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 500px;
+height: 500px;
+}
+.main h2 {
+position: absolute;
+font: 400 220px 'banana';
+letter-spacing: 0.065em;
+z-index: 100;
+color: #F5DD2B;
+left: -40px;
+top: 150px;
+display: block;
+text-shadow: 0 5px 10px #2828286e, 0 -2px 1px #ffffff;
+transition: .5s;
+}
+.circle {
+box-sizing: border-box;
+position: absolute;
+width: 510px;
+height: 510px;
+border-radius: 50%;
+border: 19px solid #060606;
+box-shadow: 0px 0px 30px 16px rgba(0, 0, 0, 0.25) inset,
+0px 0px 30px 20px rgba(0, 0, 0, 0.25);
+transition: .3s;
+}
+.banana {
+position: absolute;
+width: 780px;
+height: 390px;
+left: -120px;
+top: 110px;
+background: url(./banana.png);
+background-size: contain;
+transition: .5s;
+}
+nav {
+width: 360px;
+display: flex;
+justify-content: space-between;
+position: absolute;
+top: 0;
+transform: rotate(-90deg);
+right: -130px;
+font-size: 24px;
+top: 370px;
+font-family: 'Simonetta';
+letter-spacing: 2px;
+}
+nav a {
+color: #000;
+}
+.ss {
+border-bottom: 5px solid rgb(0, 0, 0);
+padding-bottom: 8px;
+}
+.content {
+position: absolute;
+width: 440px;
+height: 130px;
+top: 260px;
+right: 150px;
+opacity: 0;
+transition: .5s;
+}
+.content h3 {
+font: 400 62px 'Simonetta';
+margin-bottom: 35px;
+}
+.content span {
+font: 400 24px 'Simonetta';
+}
+button {
+position: absolute;
+width: 124px;
+height: 46px;
+right: 0;
+top: 300px;
+border-radius: 12px;
+background: #E8D231;
+border-radius: 12px;
+border: none;
+font-size: 26px;
+letter-spacing: 3px;
+}
+</style>
+</head>
+
+<body>
+<div class="shell">
+<div class="title">
+<h2>A special banana</h2>
+</div>
+<div class="slide">
+<div class="top"><i class="iconfont icon-arrow-up">
+<div class="box"></div>
+</i></div>
+<div class="bottons">
+<div class="botton one">
+<div class="line"></div>
+<span>1</span>
+</div>
+<div class="botton two">
+<div class="line"></div>
+<span>2</span>
+</div>
+</div>
+<div class="bottom"><i class="iconfont icon-arrow-down">
+<div class="box"></div>
+</i></div>
+</div>
+<div class="main">
+<h2>BANANAS</h2>
+<div class="circle"></div>
+<div class="banana"></div>
+</div>
+<nav>
+<a href="">home</a>
+<a href="">home</a>
+<a href="">home</a>
+<a href="" class="ss">home</a>
+</nav>
+<div class="content">
+<h3>Banana</h3>
+<span>
+In addition to being eaten directly after ripening,
+bananas also have natural sugars that make them
+great desserts, such as cakes, ice cream, or fried or dried fruit.
+</span>
+<button>GO</button>
+</div>
+</div>
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script>
+document.onmousewheel = function () {
+// 滚轮上滚的时候触发
+if (event.wheelDelta > 0) {
+$('.title h2').css({ "left": "50%", "width": "560px", "fontSize": "32px" })
+$('.shell').css({
+"background-color": "#F5DD2B",
+"color": "#000",
+})
+$('.box').css({ "background": "#000" })
+$('.one').css({
+"width": "11px",
+"height": "11px",
+"background": "#F5DD2B",
+"border": "7px solid #000000",
+})
+$('.two').css({
+"width": "18px",
+"height": "18px",
+"background": "#000",
+})
+$('.one .line').css({ "opacity": "1" })
+$('.two .line').css({ "opacity": "0" })
+$('.two span').css({ "opacity": "0" })
+$('.one span').css({ "opacity": "1" })
+$('nav a').css({ "color": "#000" })
+$('nav .ss').css({ "borderBottomColor": "#000" })
+$('.circle').css({
+"border": "19px solid #000",
+"left": "-0",
+"boxShadow": "0px 0px 30px 16px rgba(0, 0, 0, 0.25) inset,0px 0px 30px 20px rgba(0, 0, 0, 0.25)",
+})
+$('.banana').css({
+"left": "-120px",
+"width": "780px",
+"height": "390px",
+"top": "110px",
+})
+$('.main h2').css({
+"left": "-40px",
+"fontSize": "220px",
+"letterSpacing": "0.065em",
+"color": "#F5DD2B",
+})
+$('.main h2').text('BANANAS')
+$('.content').css({ "opacity": "0", "top": "260px" })
+}
+// 滚轮下滚的时候触发
+if (event.wheelDelta < 0) {
+$('.title h2').css({ "left": "90px", "width": "100px", "fontSize": "24px" })
+$('.shell').css({
+"background-color": "#000",
+"color": "#FFF",
+})
+$('.box').css({ "background": "#FFF" })
+$('.two').css({
+"width": "11px",
+"height": "11px",
+"background": "#000",
+"border": "7px solid #F5DD2B",
+})
+$('.one').css({
+"width": "18px",
+"height": "18px",
+"background": "#F5DD2B",
+})
+$('.two .line').css({ "opacity": "1" })
+$('.two span').css({ "opacity": "1" })
+$('.one span').css({ "opacity": "0" })
+$('nav a').css({ "color": "#fff" })
+$('nav .ss').css({ "borderBottomColor": "#fff" })
+$('.circle').css({
+"border": "19px solid #fff",
+"left": "-250px",
+"boxShadow": "0px 0px 30px 20px rgba(255, 255, 255, 0.25) inset,0px 0px 40px 30px rgba(255, 255, 255, 0.25)",
+})
+$('.banana').css({
+"left": "610px",
+"width": "200px",
+"height": "100px",
+"top": "420px",
+})
+$('.main h2').css({
+"left": "-300px",
+"fontSize": "300px",
+"letterSpacing": "40px",
+"color": "#fff",
+})
+$('.main h2').text('HELLO.')
+$('.content').css({ "opacity": "1", "top": "160px" })
+}
+}
+</script>
+
+</html>

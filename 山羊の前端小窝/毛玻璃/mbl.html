@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陳山羊/毛玻璃</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            /* 给背景一个渐变 */
+            background-color: black;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .a{
+            position: relative;
+            width: 400px;
+            height: 250px;
+            top: 200px;
+        }
+        .b{
+            position: absolute;
+            width: 400px;
+            height: 250px;
+            border-radius: 20px;
+            /* 设置渐变 */
+            background: linear-gradient(
+                to right bottom,
+                rgba(255,255,255,.6),
+                rgba(255,255,255,.3),
+                rgba(255,255,255,.2)
+            );
+            /* 重点：使元素背景模糊化 */
+            backdrop-filter: blur(11px);
+            /* 设置上高光和左高光，使其看起来更加逼真 */
+            border-top: 1px solid rgba(255,255,255,.8);
+            border-left: 1px solid rgba(255,255,255,.8);
+        }
+        .b span{
+            /* 设置文字的大小和粗细 */
+            font: 900 50px '';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            color: rgba(0,0,0,.5);
+            /* 设置文字阴影 */
+            text-shadow: 1px 1px 3px rgba(255,255,255,.7);
+        }
+        .b p{
+            font: 900 25px '';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: rgba(255,255,255,.3);
+            /* 设置字体间距 */
+            letter-spacing: 3px;
+        }
+        /* 接下来设置两个球 */
+        .c{
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background-color: rgb(255, 170, 0);
+            position: absolute;
+            top: 140px;
+            left: -40px;
+            z-index: -99;
+        }
+        .d{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #77fdd7;
+            position: absolute;
+            top: -50px;
+            left: 260px;
+            z-index: -99;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+        <div class="b">
+            <span>GOAT</span>
+            <P>2021_2_15/bilibili</P>
+        </div>
+        <div class="c"></div>
+        <div class="d"></div>
+    </div>
+</body>
+</html>

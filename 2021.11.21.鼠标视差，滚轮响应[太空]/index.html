@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝 & 山羊の设计小窝</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: linear-gradient(to bottom, rgb(86, 71, 117), #000, #000);
+            transition: 2s;
+        }
+
+        .shell {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .content h2{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 300px;
+            text-align: center;
+            color: rgba(255, 255, 255, .9);
+            z-index: 999;
+            -webkit-text-stroke: 2px rgb(0, 0, 0);
+            font: 500 100px '优设标题黑';
+        }
+
+        .images {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            position: absolute;
+            overflow-x: hidden;
+        }
+
+        .images div {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+        }
+
+        .img1 {
+            background-image: url('./image/1.png');
+        }
+
+        .img2 {
+            background-image: url('./image/2.png');
+        }
+
+        .img3 {
+            background-image: url('./image/3.png');
+        }
+
+        .img4 {
+            background-image: url('./image/4.png');
+        }
+
+        .img5 {
+            background-image: url('./image/5.png');
+        }
+
+        .images .img6 {
+            background-image: url('./image/6.png');
+            transform: translate(600px, 400px) scale(1);
+            position: sticky;
+            top: -400px;
+            opacity: 1;
+        }
+
+        .images .img7 {
+            background-image: url('./image/7.png');
+            transform: translate(0, 2100px);
+            background-size: contain;
+            height: 3400px;
+        }
+
+        .images .img8 {
+            background-image: url('./image/8.png');
+            transform: translate(0, 2100px);
+            background-size: contain;
+            height: 3400px;
+            transition: 1s;
+        }
+
+        .images .img9 {
+            background-image: url('./image/9.png');
+            transform: translate(0, 2100px);
+            background-size: contain;
+            height: 3400px;
+            transition: 1s;
+        }
+
+        .images .img10 {
+            background-image: url('./image/10.png');
+            background-size: contain;
+            height: 3400px;
+            transform: translate(700px, 2100px);
+        }
+
+        .image {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            transform: translate(0px, 5000px);
+        }
+
+        .images .img11 {
+            background-image: url('./image/11.png');
+            transform: translate(0px, 300px);
+            transition: 1s;
+        }
+
+        .images .img12 {
+            background-image: url('./image/12.png');
+            transform: translate(0px, 300px);
+            transition: .7s;
+        }
+
+        .images .img13 {
+            background-image: url('./image/13.png');
+            transform: translate(0px, 300px);
+            transition: .5s;
+        }
+
+        .images .img14 {
+            background-image: url('./image/14.png');
+        }
+        .image span{
+            letter-spacing: 3px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 300px;
+            text-align: center;
+            color: rgba(255, 255, 255, .9);
+            z-index: 999;
+            -webkit-text-stroke: 2px rgb(0, 0, 0);
+            font: 500 140px '优设标题黑';
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <div class="content">
+            <div class="images">
+                <h2>Slide down<br />︾</h2>
+                <div class="img1"></div>
+                <div class="img2"></div>
+                <div class="img3"></div>
+                <div class="img4"></div>
+                <div class="img5"></div>
+                <div class="img6"></div>
+                <div class="img7"></div>
+                <div class="img8"></div>
+                <div class="img9"></div>
+                <div class="img10"></div>
+                <div class="image">
+                    <div class="img11"></div>
+                    <div class="img12"></div>
+                    <div class="img13"></div>
+                    <div class="img14"></div>
+                    <span>END</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let images = document.querySelector('.images')
+        let img1 = document.querySelector('.img1')
+        let img2 = document.querySelector('.img2')
+        let img3 = document.querySelector('.img3')
+        let img4 = document.querySelector('.img4')
+        let img5 = document.querySelector('.img5')
+        let img6 = document.querySelector('.img6')
+        let img7 = document.querySelector('.img7')
+        let img8 = document.querySelector('.img8')
+        let img9 = document.querySelector('.img9')
+        let img10 = document.querySelector('.img10')
+        let img11 = document.querySelector('.img11')
+        let img12 = document.querySelector('.img12')
+        let img13 = document.querySelector('.img13')
+        let img14 = document.querySelector('.img14')
+        document.addEventListener('mousemove', e => {
+            let item = document.querySelectorAll(".item")
+
+            let mouseX = e.clientX
+            let mouseY = e.clientY
+
+            let img1x = img1.offsetLeft
+            let img1y = img1.offsetTop
+
+            let img3x = img3.offsetLeft
+            let img3y = img3.offsetTop
+
+            let img4x = img4.offsetLeft
+            let img4y = img4.offsetTop
+
+            let img5x = img5.offsetLeft
+            let img5y = img5.offsetTop
+
+            let diff1X = (mouseX - img1x) / 45
+            let diff1Y = (mouseY - img1y) / 45
+
+
+            let diff3X = (mouseX - img3x) / 18
+            let diff3Y = (mouseY - img3y) / 18
+
+            let diff4X = (mouseX - img4x) / 30
+            let diff4Y = (mouseY - img4y) / 30
+
+            let diff5X = (mouseX - img5x) / 8
+            let diff5Y = (mouseY - img5y) / 8
+            img1.style.transform = `translate(${diff1X}px,${diff1Y}px)`
+            img3.style.transform = `translate(${diff3X}px,${diff3Y}px)`
+            img4.style.transform = `translate(${diff4X}px,${diff4Y}px)`
+            img5.style.transform = `translate(${diff5X}px,${diff5Y}px)`
+        })
+        images.addEventListener('scroll', function () {
+            let top = images.scrollTop
+            let img2x = 400 - top * 0.7
+            let img3x = 400 - top * 0.7
+            let img6x = 600 - top * 0.7
+            let img6s = 1 + top * 0.0008
+            let img6o = 1.3 - top * 0.0004
+            let img10x = 0 - (top - 4600) * 2
+            // 
+            let img8x = -340 + (top - 3300) * 1
+            let img9x = 340 - (top - 3300) * 1
+            let img14x = (top - 5400) * 0.3 / Math.PI
+            if (top >= 100) {
+                if (img6x < -300) {
+                    img6x = -300
+                }
+                img6.style.transform = `translate(${img6x}px,400px) scale(${img6s})`
+                img6.style.opacity = img6o
+                img10.style.transform = `translate(${img10x}px,2100px)`
+                img14.style.transform = `translate(0px,200px) rotateZ(${img14x}deg)`
+            }
+            if (top >= 2000) {
+                document.body.style.background = '#15347b'
+            }
+            else {
+                document.body.style.backgroundImage = 'linear-gradient(to bottom,rgb(86, 71, 117),#000,#000)'
+            }
+            if (top >= 3600) {
+                img8.style.transform = `translate(0px,2100px)`
+                img9.style.transform = `translate(0px,2100px)`
+
+            } else {
+                img8.style.transform = `translate(1400px,2100px)`
+                img9.style.transform = `translate(-1400px,2100px)`
+            }
+            if (top >= 5500) {
+                img11.style.transform = `translate(0px,0px)`
+                img12.style.transform = `translate(0px,0px)`
+                img13.style.transform = `translate(0px,0px)`
+            } else {
+                img11.style.transform = `translate(0px,300px)`
+                img12.style.transform = `translate(0px,300px)`
+                img13.style.transform = `translate(0px,300px)`
+            }
+        })
+    </script>
+</body>
+
+</html>

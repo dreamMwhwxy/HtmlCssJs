@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <!-- 导入字体图标 -->
+    <link rel="stylesheet" href="./font_r6qei5iqwbg/iconfont.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: rgb(170, 190, 250);
+        }
+
+        .shell {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            user-select: none;
+        }
+
+        .shell .item {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: all .3s ease-in-out;
+            z-index: -1;
+            opacity: 0;
+            background-color: #fff;
+        }
+
+        .item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .item.active {
+            opacity: 1;
+            z-index: 99;
+            transform: translate(-50%, -50%) scale(1.2);
+            box-shadow: 0px 0px 105px -35px rgba(0, 0, 0, 0.75);
+        }
+
+        .item.prev {
+            z-index: 2;
+            opacity: 0.25;
+            transform: translate(-125%, -50%);
+        }
+
+        .item.next {
+            z-index: 2;
+            opacity: 0.25;
+            transform: translate(25%, -50%);
+        }
+
+        .shell .button-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 315px;
+            z-index: 100;
+        }
+
+        .button-container .button {
+            color: #fff;
+            font-size: 32px;
+            cursor: pointer;
+            position: relative;
+            transition: all 300ms ease-in-out;
+        }
+
+        .button-container .button:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(5, 5, 5, 0.521);
+            border-radius: 50%;
+            z-index: -99;
+        }
+
+        .iconfont {
+            display: block;
+        }
+
+        .button-container .button:nth-child(1) {
+            float: left;
+        }
+
+        .button-container .button:nth-child(2) {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <div class="item active">
+            <img src="./img/1.gif">
+        </div>
+        <div class=" item next">
+            <img src="./img/2.gif">
+        </div>
+        <div class="item">
+            <img src="./img/3.gif">
+        </div>
+        <div class="item prev">
+            <img src="./img/4.gif">
+        </div>
+        <div class="button-container">
+            <div class="button"><i class="iconfont icon-xiangzuo"></i></div>
+            <div class="button"><i class="iconfont icon-xiangyou"></i></div>
+        </div>
+    </div>
+
+
+    <script>
+        const slider = document.querySelector(".shell");
+        const slides = document.querySelectorAll(".item");
+        const button = document.querySelectorAll(".button");
+        let current = 0; // 当前图片的索引
+        let prev = 4; // 前一张图片的索引
+        let next = 1; // 后一张图片的索引
+        // 给所有按钮添加点击事件监听器
+        for (let i = 0; i < button.length; i++) {
+            button[i].addEventListener("click", () => i == 0 ? gotoPrev() : gotoNext());
+        }
+        // 切换到前一张图片
+        const gotoPrev = () => current > 0 ? gotoNum(current - 1) : gotoNum(slides.length - 1);
+        // 切换到后一张图片
+        const gotoNext = () => current < 3 ? gotoNum(current + 1) : gotoNum(0);
+        // 切换到指定索引的图片
+        const gotoNum = number => {
+            current = number;
+            prev = current - 1;
+            next = current + 1;
+            // 移除所有图片的类名
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+                slides[i].classList.remove("prev");
+                slides[i].classList.remove("next");
+            }
+            // 如果后一张图片的索引超过了图片数量，将其重置为0
+            if (next == 4) {
+                next = 0;
+            }
+            // 如果前一张图片的索引小于0，将其重置为4
+            if (prev == -1) {
+                prev = 3;
+            }
+            // 给当前、前一张、后一张图片添加对应的类名
+            slides[current].classList.add("active");
+            slides[prev].classList.add("prev");
+            slides[next].classList.add("next");
+        }
+
+// 该代码用于实现一个图片轮播的功能，首先获取到轮播容器的DO
+// M元素和所有的图片元素，以及左右切换按钮的DOM元素。然后定义
+// 了三个变量current、prev、next，分别用于记录当前显示图片的索
+// 引、前一张图片的索引和后一张图片的索引。接着给左右切换按钮
+// 添加点击事件监听器，当点击左按钮时执行gotoPrev函数，当点击
+// 右按钮时执行gotoNext函数。gotoPrev和gotoNext函数用于切换到
+// 前一张或后一张图片，gotoNum函数用于切换到指定索引的图片。
+// 在gotoNum函数中，首先更新current、prev、next变量的值，然后
+// 移除所有图片元素的类名，最后给当前、前一张和后一张图片添加
+// 对应的类名，用于控制它们的显示和隐藏。
+    </script>
+</body>
+
+</html>

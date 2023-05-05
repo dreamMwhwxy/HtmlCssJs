@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Space Mono', monospace;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrapper{
+            width: 600px;
+            margin: 10vh auto;
+        }
+
+        h1{
+            margin-bottom: 20px;
+            text-align:center;
+        }
+
+        input{
+            display: none;
+        }
+
+        label{
+            display: flex;
+            width: 100%;
+            height: 50px;
+            cursor: pointer;
+            border: 3px solid #3E474F;
+            user-select: none;
+        }
+
+        label div:first-child{
+            width: 100%;
+            line-height: 45px;
+            margin-left: 10px;
+            font-size: 1.2em;
+        }
+
+        .cross{
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+
+        .cross::before,
+        .cross::after{
+            content: '';
+            border-top: 2px solid #3E474F;
+            width: 15px;
+            display: block;
+            margin-top: 18px;
+            transition: .3s;
+        }
+
+        .cross::after{
+            transform: rotate(90deg);
+            margin-top: -2px;
+        }
+
+        input:checked~label .cross::before{
+            transform: rotate(180deg);
+        }
+
+        input:checked~label .cross::after{
+            transform: rotate(0deg);
+        }
+
+        .content{
+            box-sizing: border-box;
+            font-size: 0.9em;
+            margin: 10px 10px;
+            max-height: 0px;
+            overflow: hidden;
+            transition: max-height,.5s;
+        }
+
+        input:checked~.content{
+            max-height: 400px;
+            transition: max-height,1s;
+        }
+        
+        .SecondaryMenus{
+            margin-top: 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height,.5s;
+        }
+
+        .SecondaryMenus label{
+            border: none;
+            box-shadow: none;
+            margin: 0;
+        }
+
+        input:checked~.SecondaryMenus{
+            max-height: 400px;
+            border-bottom: 2px solid #3E474F;
+            transition: 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Accordion secndary menu</h1>
+        <div class="wrap-1">
+            <input type="radio" id="tab-1" name="tabs">
+            <label for="tab-1">
+                <div>First level menu - one</div>
+                <div class="cross"></div>
+            </label>
+            <div class="content">One kind of loneliness is that when you close your eyes, you can recall the
+                temperature, conversation, action, and details of the story. When you open your eyes, you feel that they
+                never happened. It is because life has a lot of passing, no intersection of loneliness, so we have to
+                start each time, good farewell.</div>
+        </div>
+
+        <div class="wrap-2">
+            <input type="radio" id="tab-2" name="tabs">
+            <label for="tab-2">
+                <div>First level menu - two</div>
+                <div class="cross"></div>
+            </label>
+            <div class="content">Youth, is a gorgeous dream, there will always be empty one day, but no matter how
+                lonely, thank you have accompanied me that moved.</div>
+        </div>
+
+        <div class="wrap-3">
+            <input type="radio" id="tab-3" name="tabs">
+            <label for="tab-3">
+                <div>First level menu - three</div>
+                <div class="cross"></div>
+            </label>
+            <div class="SecondaryMenus">
+                <div class="SecondaryMenu-wrap">
+                    <input type="radio" id="SecondaryMenu-1" name="SecondaryMenu">
+                    <label for="SecondaryMenu-1">
+                        <div>SecondaryMenu - one</div>
+                        <div class="cross"></div>
+                    </label>
+                    <div class="content">In infinite time, limited life, we are chasing the sun and the moon, chasing
+                        the dream. Looking
+                        back, we are far away from that pure dream.</div>
+                </div>
+
+                <div class="SecondaryMenu-wrap">
+                    <input type="radio" id="SecondaryMenu-2" name="SecondaryMenu">
+                    <label for="SecondaryMenu-2">
+                        <div>SecondaryMenu - two</div>
+                        <div class="cross"></div>
+                    </label>
+                    <div class="content">We, one day, will become me, because the happiness ahead will let you go, and
+                        the footprints you
+                        left are the basis for my stay.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

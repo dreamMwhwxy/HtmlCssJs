@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(54, 66, 70);
+        }
+
+        .tree {
+            position: relative;
+            width: 500px;
+            height: 700px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .star {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-color: rgb(236, 234, 167);
+            z-index: 999;
+            margin-bottom: 40px;
+            clip-path: polygon(50% 0, 65% 40%, 100% 40%, 72% 60%,
+                    85% 100%, 50% 75%, 15% 100%, 28% 60%, 0 40%, 35% 40%);
+        }
+        .tree li{
+            position: absolute;
+            top: 25px;
+            width: 2px;
+            background: linear-gradient(rgba(46,204,113,0),rgba(46,204,113,.25));
+            transform-origin: 50% 0;
+            animation: swing 4s ease-in-out infinite;
+            height: calc(var(--i)*4px);
+            animation-delay:calc(var(--i)*-0.23s);
+        }
+        @keyframes swing{
+            0%,
+            100%{
+                transform: rotate(-30deg);
+            }
+            5%,45%{
+                opacity: 0.25;
+            }
+            0%,50%,100%{
+                opacity: 1;
+            }
+            50%{
+                transform: rotate(30deg);
+            }
+        }
+        .tree li::before{
+            content: '';
+            position: absolute;
+            left: -1px;
+            bottom: 1px;
+            width: 3px;
+            height: 3px;
+        }
+        .tree li:nth-child(4n)::before{
+            background-color: #D8334A;
+        }
+        .tree li:nth-child(4n+1)::before{
+            background-color: #FFCE54;
+        }
+        .tree li:nth-child(4n+2)::before{
+            background-color: #2ECC71;
+        }
+        .tree li:nth-child(4n+3)::before{
+            background-color: #5D9CEC;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="tree">
+        <div class="star"></div>
+        <li style="--i:1"></li>
+        <li style="--i:2"></li>
+        <li style="--i:3"></li>
+        <li style="--i:4"></li>
+        <li style="--i:5"></li>
+        <li style="--i:6"></li>
+        <li style="--i:7"></li>
+        <li style="--i:8"></li>
+        <li style="--i:9"></li>
+        <li style="--i:10"></li>
+        <li style="--i:11"></li>
+        <li style="--i:12"></li>
+        <li style="--i:13"></li>
+        <li style="--i:14"></li>
+        <li style="--i:15"></li>
+        <li style="--i:16"></li>
+        <li style="--i:17"></li>
+        <li style="--i:18"></li>
+        <li style="--i:19"></li>
+        <li style="--i:20"></li>
+        <li style="--i:21"></li>
+        <li style="--i:22"></li>
+        <li style="--i:23"></li>
+        <li style="--i:24"></li>
+        <li style="--i:25"></li>
+        <li style="--i:26"></li>
+        <li style="--i:27"></li>
+        <li style="--i:28"></li>
+        <li style="--i:29"></li>
+        <li style="--i:30"></li>
+        <li style="--i:31"></li>
+        <li style="--i:32"></li>
+        <li style="--i:33"></li>
+        <li style="--i:34"></li>
+        <li style="--i:35"></li>
+        <li style="--i:36"></li>
+        <li style="--i:37"></li>
+        <li style="--i:38"></li>
+        <li style="--i:39"></li>
+        <li style="--i:40"></li>
+        <li style="--i:41"></li>
+        <li style="--i:42"></li>
+        <li style="--i:43"></li>
+        <li style="--i:44"></li>
+        <li style="--i:45"></li>
+        <li style="--i:46"></li>
+        <li style="--i:47"></li>
+        <li style="--i:48"></li>
+        <li style="--i:49"></li>
+        <li style="--i:50"></li>
+        <li style="--i:51"></li>
+        <li style="--i:52"></li>
+        <li style="--i:53"></li>
+        <li style="--i:54"></li>
+        <li style="--i:55"></li>
+        <li style="--i:56"></li>
+        <li style="--i:57"></li>
+        <li style="--i:58"></li>
+        <li style="--i:59"></li>
+        <li style="--i:60"></li>
+        <li style="--i:61"></li>
+        <li style="--i:62"></li>
+        <li style="--i:63"></li>
+        <li style="--i:64"></li>
+        <li style="--i:65"></li>
+        <li style="--i:66"></li>
+        <li style="--i:67"></li>
+        <li style="--i:68"></li>
+        <li style="--i:69"></li>
+        <li style="--i:70"></li>
+        <li style="--i:71"></li>
+        <li style="--i:72"></li>
+        <li style="--i:73"></li>
+        <li style="--i:74"></li>
+        <li style="--i:75"></li>
+        <li style="--i:76"></li>
+        <li style="--i:77"></li>
+        <li style="--i:78"></li>
+        <li style="--i:79"></li>
+        <li style="--i:80"></li>
+        <li style="--i:81"></li>
+        <li style="--i:82"></li>
+        <li style="--i:83"></li>
+        <li style="--i:84"></li>
+        <li style="--i:85"></li>
+        <li style="--i:86"></li>
+        <li style="--i:87"></li>
+        <li style="--i:88"></li>
+        <li style="--i:89"></li>
+        <li style="--i:90"></li>
+        <li style="--i:91"></li>
+        <li style="--i:92"></li>
+        <li style="--i:93"></li>
+        <li style="--i:94"></li>
+        <li style="--i:95"></li>
+        <li style="--i:96"></li>
+        <li style="--i:97"></li>
+        <li style="--i:98"></li>
+        <li style="--i:99"></li>
+        <li style="--i:100"></li>
+        <li style="--i:101"></li>
+        <li style="--i:102"></li>
+        <li style="--i:103"></li>
+        <li style="--i:104"></li>
+        <li style="--i:105"></li>
+        <li style="--i:106"></li>
+        <li style="--i:107"></li>
+        <li style="--i:108"></li>
+        <li style="--i:109"></li>
+        <li style="--i:110"></li>
+        <li style="--i:111"></li>
+        <li style="--i:112"></li>
+        <li style="--i:113"></li>
+        <li style="--i:114"></li>
+        <li style="--i:115"></li>
+        <li style="--i:116"></li>
+        <li style="--i:117"></li>
+        <li style="--i:118"></li>
+        <li style="--i:119"></li>
+        <li style="--i:120"></li>
+        <li style="--i:121"></li>
+        <li style="--i:122"></li>
+        <li style="--i:123"></li>
+        <li style="--i:124"></li>
+        <li style="--i:125"></li>
+        <li style="--i:126"></li>
+        <li style="--i:127"></li>
+        <li style="--i:128"></li>
+    </ul>
+</body>
+</html>

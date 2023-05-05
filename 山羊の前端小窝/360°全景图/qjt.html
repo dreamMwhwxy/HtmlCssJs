@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <style>
+        
+    /* 
+    hello大家好，我是山羊，今天我们要制作的是一个鼠标跟踪的全景效果，
+    照片可以按照鼠标的左右移动和上下移动来发生偏移
+    首先我们需要准备一张前后能对应上的全景照片，
+    然后用无限延伸的方法使其在移动起来时有种原地转圈的感觉，
+    素材你可以去网上找一张现成的，也可以在现实生活中用相机拍一张全景照
+     */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .shell{
+            width: 100%;
+            height: 100vh;
+        }
+        .img{
+            width: 100%;
+            height: 100%;
+            background-image: url('./img.jpg');
+            /* 是只按照x轴重复 */
+            background-repeat:repeat-x;
+            /* 是指图片的偏移，第一个值是x轴的偏移，第二个值是代表y轴的偏移，
+            我们先将y轴向下偏移600个像素，使图片达到上下居中 */
+            background-position: 0 -600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <div class="img"></div>
+    </div>
+    <script>
+        const img = document.querySelector('.img')
+        img.addEventListener('mouseenter',function(e){
+            // 当鼠标移动到图片上的时候，获取鼠标x轴和y轴的位置
+            this.x=e.clientX
+            this.y=e.clientY
+        })
+        img.addEventListener('mousemove',function(e){
+            // 当鼠标在图片上移动的时候，再获取一次获取鼠标x轴和y轴的位置，
+            // 然后减掉鼠标移入时的位置，就可以获取鼠标偏移了多少的值
+            this._x=e.clientX
+            this._y=e.clientY
+            // 我们让x轴偏移的值乘一个2倍，使x轴的偏移值变大一点，
+            // 从而达到鼠标左右滑动的时候反响更大
+            // 在y轴使鼠标先减去原来向下偏移的值再除于1.6倍，使其反响更小一点
+            const disx = this._x-this.x
+            const disy = this._y-this.y
+            const movex = disx*2
+            const movey = -600+disy/1.6
+            img.style.backgroundPosition=`${movex}px ${movey}px`
+        })
+    </script>
+</body>
+</html>

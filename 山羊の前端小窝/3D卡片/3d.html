@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            background: rgb(156, 156, 248);
+        }
+
+        .shell {
+            position: relative;
+            perspective: 700px;
+            transform-style: preserve-3d;
+        }
+
+        .card {
+            height: 260px;
+            width: 460px;
+            transform: translateX(10px) rotateY(25deg) rotateX(10deg);
+            background-color: rgba(250, 200, 30, .8);
+            display: flex;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 70px;
+        }
+
+        .card .word {
+            background-color: #000;
+            line-height: 1;
+            color: rgba(250, 200, 30, 1);
+            padding: 0 10px;
+            margin: 0 15px 0 30px;
+            display: inline-flex;
+        }
+
+        .shell::before {
+            content: '';
+            height: 260px;
+            width: 460px;
+            position: absolute;
+            margin-top: -9px;
+            margin-left: -9px;
+            border: 9px solid #000;
+            transform: translateX(-60px) rotateY(-30deg) rotateX(15deg) scale(1.03);
+        }
+
+        .shell:hover>div,
+        .shell:hover::before{
+            transform: none;
+        }
+
+        .shell>div,
+        .shell::before{
+            transition: .3s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="shell">
+        <div class="card">
+            <h1><span class="word">AGO</span>AwAy</h1>
+        </div>
+    </div> -->
+
+    <div class="shell">
+        <div class="card">
+            <h1><span class="word">SAD</span>GOAT</h1>
+        </div>
+    </div>
+</body>
+
+</html>

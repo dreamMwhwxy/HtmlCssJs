@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .keyboard-base{
+        min-width: 1085px;
+        padding: 20px;
+        background-color: rgb(56, 56, 56);
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: repeat(30,30px);
+        grid-template-rows: repeat (5,60px);
+        grid-gap: 5px;
+    }
+    .key{
+        background-color: rgb(243, 243, 243);
+        border-radius: 5px;
+        grid-column: span 2;
+        font: 500 20px '';
+        text-align: center;
+        padding: 17px;
+        border: 2px solid black;
+    }
+    .key:hover{
+        box-shadow:  inset 0 0 7px rgba(0,0,0,0.8);
+    }
+    .color{
+        background-color: rgb(180, 180, 180);
+    }
+    .delete{
+        grid-column: span 4;
+    }
+    .tab{
+        grid-column: span 3;
+    }
+    .backslash{
+        grid-column: span 3;
+    }
+    .capslock{
+        grid-column: span 4;
+    }
+    .return{
+        background-color: rgb(250, 140, 70);
+        grid-column: span 4;
+    }
+    .leftshift{
+        grid-column: span 5;
+    }
+    .rightshift{
+        grid-column: span 5;
+    }
+    .leftctrl{
+        grid-column: span 3;
+    }
+    .command{
+        grid-column: span 3;
+        font-size: 14px;
+    }
+    .space{
+        background-color: rgb(250, 140, 70);
+        grid-column: span 13;
+    }
+</style>
+<body>
+    <div class="keyboard-base">
+        <div class="key color">~</div>
+        <div class="key">1</div>
+        <div class="key">2</div>
+        <div class="key">3</div>
+        <div class="key">4</div>
+        <div class="key">5</div>
+        <div class="key">6</div>
+        <div class="key">7</div>
+        <div class="key">8</div>
+        <div class="key">9</div>
+        <div class="key">0</div>
+        <div class="key">-</div>
+        <div class="key">+</div>
+        <div class="key delete color">Delete</div>
+        <div class="key tab color">Tab</div>
+        <div class="key">Q</div>
+        <div class="key">w</div>
+        <div class="key">E</div>
+        <div class="key">R</div>
+        <div class="key">T</div>
+        <div class="key">Y</div>
+        <div class="key">U</div>
+        <div class="key">I</div>
+        <div class="key">O</div>
+        <div class="key">P</div>
+        <div class="key">[</div>
+        <div class="key">]</div>
+        <div class="key backslash color">\</div>
+        <div class="key capslock color">CapsLock</div>
+        <div class="key">A</div>
+        <div class="key">S</div>
+        <div class="key">D</div>
+        <div class="key">F</div>
+        <div class="key">G</div>
+        <div class="key">H</div>
+        <div class="key">J</div>
+        <div class="key">K</div>
+        <div class="key">L</div>
+        <div class="key">;</div>
+        <div class="key">'</div>
+        <div class="key return">Return</div>
+        <div class="key leftshift color">Shift</div>
+        <div class="key">Z</div>
+        <div class="key">X</div>
+        <div class="key">C</div>
+        <div class="key">V</div>
+        <div class="key">B</div>
+        <div class="key">N</div>
+        <div class="key">M</div>
+        <div class="key">,</div>
+        <div class="key">.</div>
+        <div class="key">/</div>
+        <div class="key rightshift color">Shift</div>
+        <div class="key leftctrl color">Ctrl</div>
+        <div class="key color">Alt</div>
+        <div class="key command color">Command</div>
+        <div class="key space">Space</div>
+        <div class="key command color">command</div>
+        <div class="key color">Alt</div>
+        <div class="key color">Ctrl</div>
+        <div class="key color">Fn</div>
+    </div>
+</body>
+</html>

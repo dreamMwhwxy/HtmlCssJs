@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: rgb(210, 210, 220);
+        }
+        .shell{
+            position: relative;
+            min-width: 1000px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            /* 设置3d变化 */
+            transform-style:preserve-3d;
+            /* 添加透视效果 */
+            perspective: 900px;
+        }
+        .shell .box{
+            position: relative;
+            width: 250px;
+            height: 350px;
+            transition: .3s;
+            overflow: hidden;
+            margin: 30px;
+            transform: rotateY(0);
+            transition-delay: .1s;
+            border-radius: 5px;
+            border: #fff 5px solid;
+        }
+        .shell .box .images img{
+            width: 100%;
+        }
+        .shell:hover .box{
+            transform: rotateY(40deg);
+        }
+        .shell .box:hover{
+            transform: rotateY(0deg) scale(1.25);
+            box-shadow: 0 25px 40px rgba(0, 0, 0, .7);
+            z-index: 1;
+        }
+        .shell .box:hover~.box{
+            transform: rotateY(-40deg);
+        }
+        .shell .box .content{
+            position: absolute;
+            top: 0;
+            width: 90%;
+            height: 100%;
+            z-index: 999;
+            padding: 15px;
+        }
+        .shell .box .content h2{
+            color: rgb(210, 140, 140);
+            transition: .3s;
+            font-size: 20px;
+            transform: translateY(-100px);
+        }
+        .shell .box:hover .content h2{
+            transform: translateY(-15px);
+        }
+        .shell .box .content p{
+            color: #000;
+            transition: .3s;
+            font-size: 14px;
+            transform: translateY(600px);
+            background-color: rgba(255, 255, 255,.7);
+        }
+        .shell .box:hover .content p{
+            transform: translateY(225px);
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <div class="box">
+            <div class="images">
+                <img src="./image/1.png" alt="">
+            </div>
+            <div class="content">
+                <h2>ZeenChin</h2>
+                <p>The style in the painting integrates temptation, fantasy and strangeness
+                </p>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="images">
+                <img src="./image/2.png" alt="">
+            </div>
+            <div class="content">
+                <h2>ZeenChin</h2>
+                <p>The style in the painting integrates temptation, fantasy and strangeness
+                </p>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="images">
+                <img src="./image/3.png" alt="">
+            </div>
+            <div class="content">
+                <h2>ZeenChin</h2>
+                <p>The style in the painting integrates temptation, fantasy and strangeness
+                </p>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="images">
+                <img src="./image/4.png" alt="">
+            </div>
+            <div class="content">
+                <h2>ZeenChin</h2>
+                <p>The style in the painting integrates temptation, fantasy and strangeness
+                </p>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="images">
+                <img src="./image/5.png" alt="">
+            </div>
+            <div class="content">
+                <h2>ZeenChin</h2>
+                <p>The style in the painting integrates temptation, fantasy and strangeness
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

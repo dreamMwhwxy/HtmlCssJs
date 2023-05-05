@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: rgb(39, 35, 35);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .admin {
+            width: 350px;
+            height: 542px;
+            position: relative;
+            top: 60px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .b {
+            width: 100%;
+            height: 550px;
+            position: absolute;
+            background-size: cover;
+            opacity: 0;
+            transition: .5s;
+        }
+
+        .b:nth-child(1) {
+            background-image: url("1.gif");
+        }
+
+        .b:nth-child(2) {
+            background-image: url("2.gif");
+        }
+
+        .b:nth-child(3) {
+            background-image: url("3.gif");
+        }
+
+        .b:nth-child(4) {
+            background-image: url("4.gif");
+        }
+
+        .b:nth-child(5) {
+            background-image: url("5.gif");
+        }
+
+        .b:nth-child(6) {
+            background-image: url("6.gif");
+        }
+
+        .b:nth-child(7) {
+            background-image: url("7.gif");
+        }
+
+        .b:nth-child(8) {
+            background-image: url("8.gif");
+        }
+
+        .b:nth-child(9) {
+            background-image: url("9.gif");
+        }
+
+        .b.bb {
+            opacity: 1;
+        }
+
+        .c,
+        .d {
+            width: 70px;
+            height: 550px;
+            background: rgba(207, 90, 211, .2);
+            position: absolute;
+            top: 0;
+            line-height: 550px;
+            text-align: center;
+            font-size: 70px;
+            color: blueviolet;
+            cursor: pointer;
+            user-select: none;
+            transition: .3s;
+        }
+
+        .c:hover,
+        .d:hover {
+            background-color: rgba(255, 255, 255, .6);
+            color: #000;
+        }
+
+        .c {
+            left: -70px;
+        }
+
+        .d {
+            right: -70px;
+        }
+
+        .e1 {
+            width: 95%;
+            height: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+            margin: auto;
+
+        }
+
+        .e {
+            border-radius: 50%;
+            border: #000 solid 5px;
+            width: 15px;
+            height: 15px;
+            opacity: .7;
+            cursor: pointer;
+            transition: .4s;
+            /* background-color: #fff; */
+        }
+
+        .e:hover {
+            opacity: 1;
+            background-color: rgba(162, 59, 202, 0.7);
+        }
+
+        .e.ee {
+            opacity: 1;
+            background-color: rgb(46, 33, 158);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="admin">
+        <div class="a">
+            <ul>
+                <li class="b bb"></li>
+                <li class="b"></li>
+                <li class="b"></li>
+                <li class="b"></li>
+                <li class="b"></li>
+                <li class="b"></li>
+                <li class="b"></li>
+                <li class="b"></li>
+            </ul>
+        </div>
+        <div class="c">
+            < </div>
+                <div class="d">></div>
+                <ul class="e1">
+                    <li data-x="0" class="e ee"></li>
+                    <li data-x="1" class="e"></li>
+                    <li data-x="2" class="e"></li>
+                    <li data-x="3" class="e"></li>
+                    <li data-x="4" class="e"></li>
+                    <li data-x="5" class="e"></li>
+                    <li data-x="6" class="e"></li>
+                    <li data-x="7" class="e"></li>
+                    <li data-x="8" class="e"></li>
+                </ul>
+        </div>
+
+        <script>
+            var b = document.getElementsByClassName("b")
+            var e = document.getElementsByClassName("e")
+            var c = document.querySelector(".c")
+            var d = document.querySelector(".d")
+            var inder = 0
+            var tis
+            // alert(b.length)
+            function aa() {
+                for (var i = 0; i < b.length; i++) {
+                    b[i].className = "b"
+                }
+                for (var i = 0; i < e.length; i++) {
+                    e[i].className = "e"
+                }
+            }
+            function aaa() {
+                aa()
+                b[inder].className = "b bb"
+                e[inder].className = "e ee"
+            }
+            c.onclick = function () {
+                clearInterval(tis)
+                ts()
+                if (inder > 0) {
+                    inder--
+                } else {
+                    inder = b.length - 1
+                }
+                aaa()
+            }
+            d.onclick = function () {
+                clearInterval(tis)
+                ts()
+                if (inder < b.length - 1) {
+                    inder++
+                } else {
+                    inder = 0
+                }
+                aaa()
+            }
+            ts()
+            function ts() {
+                tis = setInterval(function () {
+                    aaa()
+                    if (inder < b.length - 1) {
+                        inder++
+                    } else {
+                        inder = 0
+                    }
+                }, 2000);
+            }
+
+            for (var i = 0; i < e.length; i++) {
+                e[i].onclick = function () {
+                    var p = this.getAttribute("data-x")
+                    inder = p
+                    aaa()
+                    // alert(p)
+                }
+            }
+        </script>
+
+</body>
+
+</html>

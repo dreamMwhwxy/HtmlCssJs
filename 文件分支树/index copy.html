@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background: #223;
+            color: #aaa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        /* ⊞⊟ */
+        .shell {
+            position: relative;
+            display: block;
+            width: 600px;
+        }
+
+        details {
+            position: relative;
+            width: auto;
+            height: auto;
+            overflow: hidden;
+            max-height: 2.5em !important;
+            transition: all 0.1s ease;
+            transition: 1s;
+        }
+
+        details>summary {
+            position: relative;
+            margin-top: 0.25em;
+            color: #99e;
+            padding: 0.1em 0.5em 0.2em;
+            background: #444;
+        }
+
+        details>summary:before {
+            content: "⊞";
+            color: #eee;
+            font-size: 0.5em;
+            margin-right: 0.5em;
+        }
+        /* 当分支被打开时 */
+        details[open]>summary {
+            background: #66e;
+            color: #eee;
+        }
+
+        details[open]>summary:before {
+            content: "⊟";
+            color: #ccc;
+        }
+        /* 调整位置，加上虚线 */
+        .folder {
+            border-left: 2px #ccc dotted;
+            border-bottom: 2px #ccc dotted;
+            margin: 0 0 10px 10px;
+            padding: 10px 0 10px 20px;
+        }
+        details[open] {
+            max-height: 599px !important;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="shell">
+        <details open>
+            <summary>Final assignment</summary>
+            <div class="folder">
+                <p>index.html</p>
+                <!-- --------------------------------------------- -->
+                <details open>
+                    <summary>style</summary>
+                    <div class="folder">
+                        <details>
+                            <summary>css</summary>
+                            <div class="folder">
+                                <p>index.css</p>
+                                <p>all.css</p>
+                            </div>
+                        </details>
+                        <!-- --------------------------------------------- -->
+                        <details open>
+                            <summary>js</summary>
+                            <div class="folder">
+                                <p>index.js</p>
+                                <p>effect.js</p>
+                                <p>all.js</p>
+                            </div>
+                        </details>
+                        <!-- --------------------------------------------- -->
+                        <details>
+                            <summary>img</summary>
+                            <div class="folder">
+                                <p>background.png</p>
+                                <p>logo.png</p>
+                                <img src="go.gif" style="height: 50px; margin: 10px 0; ">
+                            </div>
+                        </details>
+                    </div>
+                </details>
+                <!-- --------------------------------------------- -->
+                <details open>
+                    <summary>file</summary>
+                    <div class="folder">
+                        <p>Implementation principle.docx</p>
+                        <p>element.xlsx</p>
+                    </div>
+                </details>
+            </div>
+        </details>
+    </div>
+</body>
+<!-- 不支持ie -->
+</html>

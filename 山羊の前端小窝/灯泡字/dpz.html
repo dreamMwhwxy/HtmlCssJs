@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陳山羊/灯泡字</title>
+    <style>
+        body{
+            background-color: rgb(60,60,70);
+            display: flex;
+            justify-content: center;
+        }
+        .a{
+            position: relative;
+            top: 200px;
+            font: 900 100px '';
+            color: #333;
+            cursor: pointer;
+        }
+        .a span{
+            transition: .5s;
+            transition-delay: calc(var(--i)*.1s);
+        }
+        .a:hover span{
+            color: #fff;
+            text-shadow: 0 0 10px #fff,
+            0 0 20px #fff,
+            0 0 30px #fff,
+            0 0 50px #fff,
+            0 0 80px #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+        <span style="--i:1">G</span>
+        <span style="--i:2">O</span>
+        <span style="--i:3">A</span>
+        <span style="--i:4">T</span>
+        <span style="--i:5">/</span>
+        <span style="--i:6">C</span>
+        <span style="--i:7">S</span>
+        <span style="--i:8">Y</span>
+    </div>
+</body>
+</html>

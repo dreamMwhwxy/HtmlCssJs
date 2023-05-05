@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(54, 66, 70);
+        }
+
+        .tree {
+            position: relative;
+            width: 500px;
+            height: 700px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .star {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-color: rgb(236, 234, 167);
+            z-index: 999;
+            margin-bottom: 40px;
+            clip-path: polygon(50% 0, 65% 40%, 100% 40%, 72% 60%,
+                    85% 100%, 50% 75%, 15% 100%, 28% 60%, 0 40%, 35% 40%);
+        }
+        .tree li{
+            position: absolute;
+            top: 25px;
+            width: 2px;
+            background: linear-gradient(rgba(46,204,113,0),rgba(46,204,113,.25));
+            transform-origin: 50% 0;
+            animation: swing 4s ease-in-out infinite;
+            height: calc(var(--i)*4px);
+            animation-delay:calc(var(--i)*-0.23s);
+        }
+        @keyframes swing{
+            0%,
+            100%{
+                transform: rotate(-30deg);
+            }
+            5%,45%{
+                opacity: 0.25;
+            }
+            0%,50%,100%{
+                opacity: 1;
+            }
+            50%{
+                transform: rotate(30deg);
+            }
+        }
+        .tree li::before{
+            content: '';
+            position: absolute;
+            left: -1px;
+            bottom: 1px;
+            width: 3px;
+            height: 3px;
+        }
+        .tree li:nth-child(4n)::before{
+            background-color: #D8334A;
+        }
+        .tree li:nth-child(4n+1)::before{
+            background-color: #FFCE54;
+        }
+        .tree li:nth-child(4n+2)::before{
+            background-color: #2ECC71;
+        }
+        .tree li:nth-child(4n+3)::before{
+            background-color: #5D9CEC;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="tree">
+        <div class="star"></div>
+    </ul>
+</body>
+<script>
+    let tree = document.querySelector('.tree')
+    for (let i = 0; i < 128; i++) {
+        let li = document.createElement('li')
+        li.style = "--i:" + i
+        tree.appendChild(li)
+    }
+</script>
+
+</html>

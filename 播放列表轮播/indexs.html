@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: linear-gradient(120deg, #9795f0 0%, #fbc8d4 100%);
+}
+body.background {
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+/* 去掉单选按钮 */
+input[type=radio] {
+  display: none;
+}
+
+.card {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+
+.shell {
+  width: 100%;
+  max-width: 800px;
+  max-height: 550px;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+    #item-1:checked ~ .cards #song-1, 
+    #item-2:checked ~ .cards #song-2, 
+    #item-3:checked ~ .cards #song-3 {
+      transform: translatex(0) scale(1);
+      opacity: 1;
+      z-index: 1;
+    }
+    
+    #item-1:checked ~ .cards #song-2, 
+    #item-2:checked ~ .cards #song-3, 
+    #item-3:checked ~ .cards #song-1 {
+      transform: translatex(50%) scale(0.8);
+      opacity: 0.6;
+      z-index: 0;
+    }
+    
+    #item-1:checked ~ .cards #song-3, 
+    #item-2:checked ~ .cards #song-1, 
+    #item-3:checked ~ .cards #song-2 {
+      transform: translatex(-50%) scale(0.8);
+      opacity: 0.6;
+      z-index: 0;
+    }
+/* 音乐播放器 */
+.player {
+  background-color: #fff;
+  border-radius: 8px;
+  width: 520px;
+  padding:20px;
+  margin-top: 20px;
+  box-shadow: 0px 2px 10px rgba(40, 40, 40, 0.5);
+}
+.title{
+  font:700 17px '';
+}
+.information {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  height: 42px;
+  overflow: hidden;
+}
+.info-area {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50px;
+  transition: transform 0.4s ease-in;
+}
+.song-info {
+  width: calc(100% - 50px);
+  display: block;
+}
+.Subheading {
+  display: flex;
+  color: #8f868f;
+  font-size: 15px;
+}
+.time {
+  margin-left: auto;
+}
+
+.progress-bar {
+  height: 4px;
+  width: 100%;
+  background-color: #e9efff;
+}
+
+.progress {
+  display: block;
+  position: relative;
+  width: 60%;
+  height: 100%;
+  background-color: #2992dc;
+}
+/* 每次点击图片时，对应的歌曲列表就会向下移动 */
+#item-2:checked ~ .player #test {
+  transform: translateY(0);
+}
+
+#item-2:checked ~ .player #test {
+  transform: translateY(-42px);
+}
+
+#item-3:checked ~ .player #test {
+  transform: translateY(-84px);
+}
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <input type="radio" name="music" id="item-1" checked>
+        <input type="radio" name="music" id="item-2">
+        <input type="radio" name="music" id="item-3">
+      <div class="cards">
+        <label class="card" for="item-1" id="song-1">
+          <img src="image/1.jpg">
+        </label>
+        <label class="card" for="item-2" id="song-2">
+          <img src="image/2.jpg">
+        </label>
+        <label class="card" for="item-3" id="song-3">
+          <img src="image/3.jpg">
+        </label>
+      </div>
+      <!-- 播放器 -->
+      <div class="player">
+        <div class="information">
+          <div>
+            <img src="./image/play.png" style="width:40px;margin-top: 5px;">
+          </div>
+          <div class="info-area" id="test">
+            <label class="song-info" id="song-info-1">
+              <div class="title">How You Like That</div>
+              <div class="Subheading">
+                <div class="singer">BLACKPINK</div>
+                <div class="time">3:01</div>
+              </div>
+            </label>
+            <label class="song-info" id="song-info-2">
+              <div class="title">DDU-DU DDU-DU</div>
+              <div class="Subheading">
+                <div class="singer">BLACKPINK</div>
+                <div class="time">3:29</div>
+              </div>
+            </label>
+            <label class="song-info" id="song-info-3">
+              <div class="title">Kill This Love</div>
+              <div class="Subheading">
+                <div class="singer">BLACKPINK</div>
+                <div class="time">3:09</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="progress-bar">
+          <span class="progress"></span>
+        </div>
+      </div>
+    </div>
+    <!-- ---------------------------------------- -->
+    <script>
+      $('input').on('change', function() {
+        $('body').toggleClass('background');
+      });
+    </script>
+
+</body>
+</html>

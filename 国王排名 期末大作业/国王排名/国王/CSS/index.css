@@ -1,0 +1,253 @@
+
+/* 设置最上面大框框的背景 */
+.zerogrid{
+    width: 1400px;
+    height: 870px;
+    background-image: linear-gradient(rgb(216, 255, 206),rgb(212,242,123));
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.wrap-header{
+width: 1200px;
+margin-top: 60px;
+background-color: rgb(198,226,178);
+height: 750px;
+position: absolute;
+
+
+}
+.logo{
+    width: 1200px;
+    height: 200px;
+    background-color: #fff;
+     /* margin-top: 10px; */
+}
+.logo img{
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 535px;
+}
+.shell{
+    display: flex;
+    justify-content: center;
+}
+.button,.portrait{
+    background-color: rgb(198,226,178);
+    width: 170px;
+    height: 65px;
+    text-align: center;
+   line-height: 65px;
+   transition: .3s;
+   cursor: pointer;
+   font-size: 25px;
+}
+.portrait::before{
+    content: '';
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transform: translate(30px,-30px);
+ background-image: url(../img/tupian2.jpg);
+    background-size: cover;
+    border: 10px solid #fff;
+}
+.information{
+    width: 220px;
+    background-color: #78d1d2;
+    transform: translate(-20px,-200px);
+    border-radius: 10px;
+    padding: 20px 0;
+    line-height: 0;
+    height: 0;
+    transition: .3s;
+    opacity: 0;
+}
+.button:hover{
+    background-color: rgb(217,228,138);
+}
+.button li:hover{
+    background-color: rgb(210,220,221);
+}
+.button ul li{
+    height: 0;
+    transition: .2s;
+    opacity: 0;
+    transform: translateY(-65px);
+    background-color: rgb(210,220,221);
+}
+.button:hover li{
+    height: 65px;
+    opacity: 1;
+    transform: translateY(0);
+}
+.portrait:hover .information{
+    opacity: 1;
+    line-height: 65px;
+    transform: translate(-20px,-10px);
+    height: auto;
+}
+.nav li:hover{
+    background-color: rgb(217,228,138);
+} 
+.atupian{
+    width: 1200px;
+    background-color: #F4BBBB;
+}
+.atupian img{
+    width: 1200px;
+    height: 520px;
+}
+.body1{
+    width: 1519.2px;
+    padding: 40px;
+    height: 400px;
+    background-image: linear-gradient(rgb(31, 211, 238),rgb(212,242,123));
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.box1, .box2,.box3{
+    width: 300px;
+    height: 380px;
+    background-color: #b66e62;  
+    color: cornsilk;
+    font-size: 30px;
+    text-align: center;
+    overflow: hidden;
+}
+.box1 img, .box2 img,.box3 img{
+    /* width: 370px; */
+    margin-bottom: 27px;
+    height: 250px;
+    width: 100%;
+    opacity: .95;
+    transition: .6s;
+}
+.body1 img:hover{
+    transform: scale(1.2);
+}
+.wenzi1{
+    display: flex;
+    flex-direction: row;
+    width: 1519.2px;
+    height: 300px;
+    background-image: linear-gradient(rgb(212,242,123),rgb(255, 242, 146));
+    justify-content: space-around;
+}
+.box4 ,.box5{
+    width: 500px;
+    height: 200px;
+    background-image: linear-gradient(rgb(221,237,106),rgba(255, 249, 200, 0.801));
+    font-size: 35px;
+    margin-top: 50px;
+    opacity: .5;
+    color: rgb(141, 20, 20);
+}
+.touming{
+    width: 1519.2px;
+    height: 450px;
+    background-color: transparent;
+    background-attachment: fixed;
+    background-image: url(../img/beijing6.jpg);
+    background-size: contain;
+    background-position: center;
+    width: 1330px;
+    margin: 0 auto;
+    /* height: 870px; */
+   padding-top: 200px;
+    background-repeat: no-repeat;
+    /* background-color: yellow */
+    /* background-color: rgb(164,209,144); */
+    /* opacity: 1; */
+    /* background-color: seagreen; */
+ }
+ .touming1{
+     width: 230px;
+     height: 90px;
+     transition: .9s;
+     border-radius: 9px;
+     background-color: rgba(30,32,33,.6);
+     margin: 0 auto;
+    font-size: large; 
+    font-size: 40px;    
+     text-align: center;
+     color: white;
+ }
+.touming1:hover{
+     background-color: rgb(30,32,33);
+ }
+.apartments{
+    width: 1519.2px;
+    height: 900px;
+    background-image: linear-gradient(rgb(253, 242, 153),rgb(125, 205, 248));
+}
+.biaoti{
+    color: rgb(68,68,68);
+    text-align: center;
+    font-size: 40px;
+    padding-top: 30px;
+}
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+section
+{
+    position: relative;
+    width: 100%;
+}
+section video
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1400px;
+    height: 750px;
+    object-fit: cover;
+    padding-left: 90px;
+    padding-top: 30px;
+}
+section .navigation
+{
+    position: absolute;
+    top: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section .navigation li{
+    list-style: none;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 3px 3px 0;
+    opacity: 0.9;
+    transition: 0.5s;
+}
+section .navigation li:hover{
+    opacity: 1;
+}
+section .navigation li img{
+    width: 120px;
+    transition: 0.5s;
+}
+section .navigation li img:hover{
+    width: 200px;
+}
+.wbb{
+    width: 1519.2px;
+    height: 100px;
+    background-color: blanchedalmond;
+    color: black;
+    font-size: 25px;
+    padding-top: 40px;
+}

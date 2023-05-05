@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊的前端小窝</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            background-color: rgb(119 157 193);
+        }
+
+        .a {
+            position: relative;
+            top: 100px;
+            width: 1000px;
+            height: 600px;
+            border: 10px solid white;
+            background-image: url("163727-15190294471b41.jpg");
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .b,
+        .c,
+        .d,
+        .e {
+            position: absolute;
+            width: 500px;
+            height: 600px;
+            background-image: url("163727-15190294471b41.jpg");
+            background-color: rgb(15, 15, 13);
+            filter: drop-shadow(4px 4px 12px rgb(0, 0, 0));
+            background-size: cover;
+            opacity: .6;
+            transition: 1.5s;
+        }
+
+        .b {
+            left: 0;
+            clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 65% 0%);
+            background-position: -100px 0;
+        }
+
+        .c {
+            left: 0;
+            clip-path: polygon(0% 0%, 0% 100%, 70% 100%, 90% 0%);
+            background-position: -100px 0;
+        }
+
+        .d {
+            right: 0;
+            clip-path: polygon(0% 0%, 40% 100%, 100% 100%, 100% 0%);
+            background-position: 800px 0;
+        }
+
+        .e {
+            right: 0;
+            clip-path: polygon(20% 0%, 0% 100%, 100% 100%, 100% 0%);
+            background-position: 800px 0;
+        }
+
+        .a:hover .b {
+            left: -200px;
+        }
+
+        .a:hover .c {
+            left: -150px;
+        }
+
+        .a:hover .d {
+            right: -140px;
+        }
+
+        .a:hover .e {
+            right: -220px;
+        }
+
+        .a:hover div {
+            opacity: 1;
+        }
+
+        .f {
+            opacity: 0;
+            font: 900 50px '';
+            letter-spacing: 10px;
+            color: rgb(60, 60, 70);
+            transition: 1.5s;
+        }
+
+        .a:hover .f {
+            opacity: 1;
+        }
+
+        /* .aaa{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            background-color: aqua;
+            clip-path: polygon(0% 50%, 0% 100%,100% 100%,100% 0%);
+            /* filter: drop-shadow(11px 11px 10px #fce); */
+        /* box-shadow:10px 10px 10px black; */
+        }
+
+        */
+    </style>
+</head>
+
+<body>
+    <div class="a">
+        <div class="b"></div>
+        <div class="c"></div>
+        <div class="d"></div>
+        <div class="e"></div>
+        <p class="f">LONELY GOAT</p>
+    </div>
+    <!-- <div class="aaa"></div> -->
+</body>
+</html>

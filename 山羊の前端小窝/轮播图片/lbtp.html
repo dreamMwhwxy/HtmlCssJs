@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(154, 133, 250);
+        }
+        .a{
+            position: relative;
+            perspective: 1600px;
+            top: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .b{
+            width: 400px;
+            height: 250px;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: move 8s infinite 
+            cubic-bezier(.7,0,0.17,1);
+        }
+        .b div{
+            position: absolute;
+            background-size: cover;
+            opacity: .9;
+            width: 400px;
+            height: 250px;
+            transform: rotateY(calc(var(--i)*120deg))
+             translateZ(600px);
+        }
+        .c{
+            background-image: url("1.jpg");
+        }
+        .d{
+            background-image: url("2.jpg");
+        }
+        .e{
+            background-image: url("3.jpg");
+        }
+        @keyframes move{
+            0%{
+                transform: translateZ(-100px) rotateY(0);
+            }
+            33%{
+                transform: translateZ(-100px) rotateY(-120deg);
+            }
+            66%{
+                transform: translateZ(-100px) rotateY(-240deg);
+            }
+            100%{
+                transform: translateZ(-100px) rotateY(-360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+    <div class="b">
+        <div class="c" style="--i:0"></div>
+        <div class="d" style="--i:1"></div>
+        <div class="e" style="--i:2"></div>
+    </div>
+</div>
+</body>
+</html>

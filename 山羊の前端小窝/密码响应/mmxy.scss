@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');$borders: #fbe493;
+$texts: #f7c926;
+$main1: #ff8008; // dark
+$main2: #ffc837; // light
+$dark1: #151414;
+$dark2: #4d463e;
+
+
+$font: 'Playfair Display', serif;
+
+body{
+   font-family: $font;
+}
+
+h1 {
+   color: $texts;
+   text-align:center;
+   font-size:27px;
+}
+#wrapper{
+   width: 100%;
+   min-height: 100vh;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   //background: linear-gradient(25deg, $dark1, $dark2);
+   background-color: $dark1;
+}
+
+#box{
+   max-width: 750px;
+   width: 100%;
+}
+.pass-wrapper{
+   display: flex;
+   justify-content: center;
+   margin: 0 0 20px 0;
+}
+
+#svg{
+   width: 300px;
+   height: 300px;
+   display: block;
+   padding: 20px;
+}
+
+
+#input-wrapper{
+   position: relative;
+   height:40px;
+   label{
+      display: block;
+      width: 100%;
+      pointer-events: none;
+      color: $texts;
+      position: absolute;
+      bottom:10px;
+      transition-duration: 0.3s;
+      font-size: 18px;
+      opacity:1;
+      left:10px;
+   }
+   #pwd:valid, #pwd:focus {
+      & + label{
+         bottom: 35px;
+         font-size: 14px;
+         opacity:0;         
+      }
+   }
+}
+
+#pwd{
+   overflow: hidden;
+   display:block;
+   width: 100%;
+   border:none;
+   outline: none;
+   background: transparentize($texts, 0.8);
+   caret-color: #FFFFFF;
+   font-size:25px;
+   color: $texts;
+   border-radius: 7px;
+   padding: 5px 10px;
+   box-sizing: border-box;
+   line-height: 40px;
+   height:100%;
+   border: 3px solid $texts;
+}
+
+
+.levels-container{
+   width: 60%;
+   box-sizing:border-box;
+   padding: 10px;
+   margin: 10px 0 0 0;
+   border-radius: 7px;
+   pointer-events: none;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   .level-line{
+      margin: 15px 0;
+      align-items: center;
+      display: flex;
+      color: rgba(255,255,255,0);
+      .line-label{
+         width: 30%;   
+         color: $texts;
+         padding: 0 20px 0 0;
+         text-align: center;
+         transition-duration: 0.3s;
+      }
+      
+      .line-progression{
+         width: 50%;
+         position: relative;
+         height: 5px;
+         animation: glowBar 0.6s ease-in-out infinite alternate;
+         &:before, &:after{
+            content: '';
+            display: block;
+            height: 5px;
+            position: absolute;
+            border-radius: 2px;
+            top:50%;
+            left: 0;
+            transform: translateY(-50%);
+         }
+         &:before{
+            background-color: transparentize($texts, 0.8);
+            width: 100%;
+         }
+         &:after{
+            transition-duration: 0.9s;
+            background-color: $texts;
+            animation-duration: 0.8s;
+            animation-iteration-count: 1;
+            border-style: solid;
+            border-width:0px;
+         }
+      }
+      
+   }  
+}
+
+[data-level="0"] {
+   .line-progression{
+      &:after{
+         width: 2%;
+         border-width: 0px;
+      }
+   }
+}
+[data-level="1"] {
+   .line-progression{
+      &:after{
+         width: 33%;
+         animation-name: pulse1;
+         border-color: rgba(255,255,255,0.3);
+         border-width: 1px;
+      }
+   }
+}
+[data-level="2"] {
+   .line-progression{
+      &:after{
+         width: 66%;
+         animation-name: pulse2;
+         border-color: rgba(255,255,255,0.6);
+         border-width: 1px;
+      }
+   }
+}
+[data-level="3"] {
+   color: $texts!important;
+   .line-label{
+      animation: glow 0.6s ease-in-out infinite alternate;
+      color: #FFFFFF!important;
+   }
+   .line-progression{
+      &:after{
+         width: 100%;
+         animation-name: pulse3;
+         border-color: rgba(255,255,255,1);
+         border-width: 1px!important;
+         animation-duration: 2s!important;
+         color: #FFFFFF;
+      }
+   }
+}
+
+@keyframes pulse1 {
+   0%{
+      box-shadow:0px 0px 0px 0px rgba(255,255,255, 1);
+   }
+   50% {
+      box-shadow:0px 0px 30px 0px rgba(255,255,255, 1);
+   }
+   100%{
+      box-shadow:0px 0px 0px 0px rgba(255,255,255, 0);
+   }
+}
+
+@keyframes pulse2 {
+   0%{
+      box-shadow:0px 0px 0px 0px rgba(255,255,255, 1);
+   }
+   50% {
+      box-shadow:0px 0px 30px 5px rgba(255,255,255, 1);
+   }
+   100%{
+      box-shadow:0px 0px 0px 0px rgba(255,255,255, 0);
+   }
+}
+
+@keyframes pulse3 {
+   0%{
+      box-shadow:0px 0px 0px 0px rgba(255,255,255, 0.8);
+   }
+   100% {
+      box-shadow:0px 0px 6px 10px rgba(255,255,255, 0);
+   }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 
+       0 0 5px $texts, 
+       0 0 10px $texts, 
+       0 0 15px $texts, 
+       0 0 30px $texts, 
+       0 0 45px $texts, 
+       0 0 60px $texts, 
+       0 0 75px $texts;
+  }
+  to {
+    text-shadow: 
+       0 0 10px $texts, 
+       0 0 15px $texts, 
+       0 0 20px $texts, 
+       0 0 25px $texts, 
+       0 0 30px $texts, 
+       0 0 35px $texts, 
+       0 0 40px $texts;
+  }
+}
+
+@keyframes glowBar{
+  from {
+    box-shadow: 
+       0 0 5px currentColor, 
+       0 0 10px currentColor, 
+       0 0 15px currentColor, 
+       0 0 30px currentColor, 
+       0 0 45px currentColor, 
+       0 0 60px currentColor, 
+       0 0 75px currentColor;
+  }
+  to {
+    box-shadow: 
+       0 0 10px currentColor, 
+       0 0 15px currentColor, 
+       0 0 20px currentColor, 
+       0 0 25px currentColor, 
+       0 0 30px currentColor, 
+       0 0 35px currentColor, 
+       0 0 40px currentColor;
+  }
+}

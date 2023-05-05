@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陳山羊/百叶窗</title>
+    <style>
+        
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: rgb(60, 60, 70);
+            display: flex;
+            justify-content: center;
+        }
+        .a{
+            width: 900px;
+            height: 300px;
+            position: relative;
+            top: 200px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            box-shadow: 5px 5px 15px #000;
+        }
+        .b{
+            transition: .7s;
+            overflow: hidden;
+        }
+        .b:hover{
+            flex-shrink: 0;
+            flex-grow: 0;
+        }
+        img{
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+        <div class="b"><img src="1.gif"></div>
+        <div class="b"><img src="2.gif"></div>
+        <div class="b"><img src="3.gif"></div>
+        <div class="b"><img src="4.gif"></div>
+        <div class="b"><img src="5.gif"></div>
+        <div class="b"><img src="6.gif"></div>
+        <div class="b"><img src="7.gif"></div>
+    </div>
+</body>
+</html>

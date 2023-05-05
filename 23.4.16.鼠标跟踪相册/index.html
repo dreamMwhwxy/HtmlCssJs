@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+
+        #scene {
+            background-color: rgb(145, 151, 242);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .layer {
+            pointer-events: none;
+        }
+
+        h2 {
+            font-size: 18px;
+            width: 90%;
+        }
+
+        .col {
+            display: inline-block;
+            float: left;
+            overflow: hidden;
+            position: relative;
+            width: 12.5%;
+            pointer-events: all;
+            overflow: initial;
+            margin: 0 0 30px;
+        }
+
+        .layer.main {
+            width: 150%;
+            position: absolute;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .col a {
+            display: block;
+            margin: 15px;
+            overflow: hidden;
+            box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.37);
+        }
+
+        .col a .hover {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            bottom: -15px;
+            left: 15px;
+            z-index: 1;
+            color: white;
+        }
+
+        .col a .hover:after {
+            content: '';
+            position: absolut;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            display: block;
+            background: rgb(130, 146, 236);
+            opacity: 0;
+            transition: 0.35s ease;
+        }
+
+        .col a .hover:hover:after {
+            opacity: 0.85;
+            transition: 0.35s ease;
+        }
+
+        .align-bottom {
+            position: absolute;
+            width: 100%;
+            bottom: 0%;
+            z-index: 2;
+            padding: 15px 20px;
+        }
+
+        .bg-img {
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+
+        @media only screen and (max-width:1200px) {
+            .layer .col {
+                width: 16%;
+            }
+        }
+
+        @media only screen and (max-width:650px) {
+            .layer .col {
+                width: 25%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section id="scene" data-scalar-y="150.0" data-scalar-x="100.0">
+        <div class="layer main" data-depth="1.0">
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>起风了 風立ちぬ (2013)</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(./1.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>千与千寻 千と千尋の神隠し (2001)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./2.jpg);">
+
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>哈尔的移动城堡 ハウルの動く城 (2004)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./3.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>魔女宅急便 魔女の宅急便 (1989)</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(./4.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>龙猫 となりのトトロ (1988)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./5.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>崖上的波妞 崖の上のポニョ (2008)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./6.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>借东西的小人阿莉埃蒂 借りぐらしのアリエッティ (2010)</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(./7.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>风之谷 風の谷のナウシカ (1984)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./8.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>幽灵公主 もののけ姫 (1997)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./9.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>萤火虫之墓 火垂るの墓 (1988)</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(./10.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>大鱼海棠 (2016)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./11.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>你的名字。 君の名は。 (2016)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./12.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>言叶之庭 言の葉の庭 (2013)</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(./13.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>秒速5厘米 秒速5センチメートル (2007)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./14.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>铃芽之旅 すずめの戸締まり (2022)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./15.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>天气之子 天気の子 (2019)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./16.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>飞屋环游记 Up (2009)</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(./17.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>萤火之森 蛍火の杜へ (2011)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./18.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>侧耳倾听 耳をすませば (1995)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./19.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>穿越时空的少女 時をかける少女 (2006)</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(./20.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>魔发奇缘 Tangled (2010)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./21.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>鬼妈妈 Coraline (2009)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./22.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>魁拔之十万火急 (2011)</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(./23.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>哆啦A梦：伴我同行 STAND BY ME ドラえもん (2014)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./24.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>给桃子的信 ももへの手紙 (2011)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./25.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>罗小黑战记 (2019)</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(./26.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>最终幻想7：圣子降临 ファイナルファンタジーⅦ アドベントチルドレン (2005)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./27.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>藏獒多吉 (2011)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./28.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>意外的幸运签 カラフル (2010)</h2>
+                        </div>
+                    </div>
+                    <div class="bg-img" style="background-image:url(./29.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>鬼灭之刃 柱众会议・蝶屋敷篇 鬼滅の刃 柱合会議・蝶屋敷編 (2020)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./30.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>十万个冷笑话 (2014)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./31.jpg);">
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#">
+                    <div class="hover">
+                        <div class="pad align-bottom">
+                            <h2>猫和老鼠：魔法戒指 Tom and Jerry: The Magic Ring (2002)</h2>
+                        </div>
+
+                    </div>
+                    <div class="bg-img" style="background-image:url(./32.jpg);">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- 导入插件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/2.1.3/parallax.min.js"></script>
+
+    <script>
+        // 使用库
+        //定义一个名为 makeWinHeight 的函数，用于设置窗口高度和项目高度
+        var makeWinHeight = function () {
+            //获取窗口高度
+            var vh = $(window).height();
+            //将项目高度设置为窗口高度的一半
+            var projects = vh / 2;
+            //设置 id 为 scene 和 class 为 layer main 的元素的高度为窗口高度
+            $('#scene, .layer.main').height(vh);
+            //设置 id 为 scene 中 class 为 col 的元素的高度为项目高度，并将其子元素 a 的高度也设置为项目高度
+            $('#scene .col a, #scene .col').height(projects);
+        }
+        //在文档加载完成后执行 makeWinHeight 函数，以设置窗口高度和项目高度
+        $(document).ready(function () {
+            makeWinHeight();
+        });
+        //在窗口大小变化时，重新执行 makeWinHeight 函数以更新窗口高度和项目高度
+        $(window).resize(function () {
+            makeWinHeight();
+        });
+        var scene = document.getElementById('scene');
+        var parallax = new Parallax(scene);
+    </script>
+</body>
+
+</html>

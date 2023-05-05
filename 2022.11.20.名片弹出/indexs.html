@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <style>
+        * {
+            font-family: "Merriweather", serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(227, 217, 243);
+        }
+
+        .shell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .person {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 300px;
+            margin:0 50px;
+        }
+
+        .box {
+            /* 内置矩形inset（上右下左的边距round上右下左圆角） */
+            clip-path: inset(0px 0px 0px 0px round 0px 0px 520px 520px);
+            height: 500px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .circle {
+            border-radius: 50%;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            transition: transform .3s;
+        }
+
+        .img {
+            position: relative;
+            width: 80%;
+            transform: translateY(80px);
+            transition: transform .3s;
+        }
+
+        .box:hover .img {
+            transform: translateY(26px) scale(1.2);
+        }
+
+        .box:hover .circle {
+            transform: rotate(20deg);
+        }
+
+        .wire {
+            background-color: rgb(200, 115, 123);
+            height: 2px;
+            width: 200px;
+            margin: 20px 0 20px 0;
+        }
+
+        .name {
+            color: #404245;
+            font-size: 36px;
+            font-weight: 600;
+        }
+
+        .birthday {
+            color: #6e6e6e;
+            font: 100 14px 'arial';
+            /* 斜体 */
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <div class="person">
+            <div class="box">
+                <img class="circle" src="./image/background.png" />
+                <img class="img" src="./image/4.png" />
+            </div>
+            <div class="wire"></div>
+            <div class="name">JISOO</div>
+            <div class="birthday">January 3, 1995</div>
+        </div>
+
+        <div class="person">
+            <div class="box">
+                <img class="circle" src="./image/background.png" />
+                <img class="img" src="./image/3.png" />
+            </div>
+            <div class="wire"></div>
+            <div class="name">LISA</div>
+            <div class="birthday">March 27, 1997</div>
+        </div>
+
+        <div class="person">
+            <div class="box">
+                <img class="circle" src="./image/background.png" />
+                <img class="img" src="./image/1.png" />
+            </div>
+            <div class="wire"></div>
+            <div class="name">JENNIE</div>
+            <div class="birthday">January 16, 1996</div>
+        </div>
+
+        <div class="person">
+            <div class="box">
+                <img class="circle" src="./image/background.png" />
+                <img class="img" src="./image/2.png" />
+            </div>
+            <div class="wire"></div>
+            <div class="name">ROSÉ</div>
+            <div class="birthday">February 11, 1997</div>
+        </div>
+
+
+    </div>
+
+
+
+</body>
+
+</html>

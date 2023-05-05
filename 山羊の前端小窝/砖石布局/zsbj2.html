@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(235, 151, 151);
+        }
+
+        .shell{
+            /* 先设置网格布局 */
+            display: grid;
+            padding: 20px;
+            /* 定义网格布局中行与列之间间隙的尺寸 */
+            grid-gap: 20px;
+            /* 该属性规定网格布局中的列数和宽度 */
+            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+            /* 设置网格中行的默认尺寸 */
+            grid-auto-rows: 270px;
+            /* 属性控制自动放置项目在网格中的插入方式为填充 */
+            grid-auto-flow: dense;
+        }
+
+        .shell>div{
+            background-color: rgb(51,51,51);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .shell span{
+            color: #fff;
+            font: 100 100px 'Kristen ITC';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            /* 给文字加个阴影 */
+            text-shadow: -5px 0 rgb(0, 0, 0), 0 -5px rgb(0, 0, 0),5px 0 rgb(0, 0, 0),0 5px rgb(0, 0, 0);
+        }
+        .shell .wide{
+            grid-column: span 2;
+        }
+        .shell .tall{
+            grid-row: span 2;
+        }
+        .shell .big{
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <div class="tall"><span>1</span></div>
+        <div><span>2</span></div>
+        <div><span>3</span></div>
+        <div class="wide"><span>4</span></div>
+        <div><span>5</span></div>
+        <div class="tall"><span>6</span></div>
+        <div class="big"><span>7</span></div>
+        <div><span>8</span></div>
+        <div class="wide"><span>9</span></div>
+        <div class="big"><span>10</span></div>
+        <div class="tall"><span>11</span></div>
+        <div><span>12</span></div>
+        <div><span>13</span></div>
+        <div><span>14</span></div>
+        <div><span>15</span></div>
+        <div class="wide"><span>16</span></div>
+        <div><span>17</span></div>
+        <div><span>18</span></div>
+        <div class="wide"><span>19</span></div>
+        <div><span>20</span></div>
+        <div class="wide"><span>21</span></div>
+        <div class="big"><span>22</span></div>
+        <div><span>23</span></div>
+        <div><span>24</span></div>
+        <div class="big"><span>25</span></div>
+        <div class="tall"><span>26</span></div>
+        <div><span>27</span></div>
+        <div><span>28</span></div>
+        <div><span>29</span></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <span class="a"></span>
+    <script>
+        var span = document.querySelector(".a")
+        var inder = 0
+        
+        span.style.font = 900+" "+ 500 + "px" + " " + "''"
+        var time
+        function as(){
+            time = setInterval(function(){
+            var b = Math.round(Math.random()*300)
+            span.innerHTML = b
+            if(b==175){
+            clearInterval(time)
+             }
+            },10)
+        }
+        as()
+        document.onclick = function(){
+            inder++
+            if(inder%2==1){
+                clearInterval(time)
+            }else{
+                as()
+            }
+        }
+        
+    </script>
+</body>
+</html>

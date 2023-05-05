@@ -1,0 +1,228 @@
+.zerogrid {
+    width: 1400px;
+    height: 870px;
+    background-image: linear-gradient(rgb(170, 227, 255), rgb(247, 190, 171));
+    position: relative;
+}
+
+.wrap-header {
+    width: 1200px;
+    margin-top: 60px;
+    margin-left: 100px;
+    background-color: rgb(241, 173, 152);
+    height: 810px;
+    position: absolute;
+
+}
+
+.wrap-body {
+    background-attachment: fixed;
+    width: 1330px;
+    /* height: 870px; */
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    /* background-color: yellow */
+}
+
+.logo {
+    width: 1200px;
+    height: 200px;
+    background-color: #fff;
+    /* margin-top: 10px; */
+}
+
+.logo img {
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 535px;
+}
+
+.shell {
+    display: flex;
+    justify-content: center;
+}
+
+.button, .portrait {
+    background-color: rgb(248, 163, 136);
+    width: 170px;
+    height: 65px;
+    text-align: center;
+    line-height: 65px;
+    transition: .3s;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.portrait::before {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transform: translate(30px, -30px);
+    background-image: url(../img/tupian2.jpg);
+    background-size: cover;
+    border: 10px solid #fff;
+}
+
+.information {
+    width: 220px;
+    background-color: #78d1d2;
+    transform: translate(-20px, -200px);
+    border-radius: 10px;
+    padding: 20px 0;
+    line-height: 0;
+    height: 0;
+    transition: .3s;
+    opacity: 0;
+}
+
+.button:hover {
+    background-color: rgb(217, 228, 138);
+}
+
+.button li:hover {
+    background-color: rgb(210, 220, 221);
+}
+
+.button ul li {
+    height: 0;
+    transition: .2s;
+    opacity: 0;
+    transform: translateY(-65px);
+    background-color: rgb(210, 220, 221);
+}
+
+.button:hover li {
+    height: 65px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.portrait:hover .information {
+    opacity: 1;
+    line-height: 65px;
+    transform: translate(-20px, -10px);
+    height: auto;
+}
+
+.nav li:hover {
+    background-color: rgb(217, 228, 138);
+}
+
+.atupian {
+    width: 800px;
+    /* background-color: #F4BBBB; */
+    height: 620px;
+}
+
+.atupian img {
+    width: 1200px;
+    height: 520px;
+}
+
+.shel {
+    width: 1440px;
+    height: 280px;
+    display: flex;
+    padding-top: 400px;
+    padding-left: 250px;
+}
+
+.box-left {
+    background-color: #fff;
+    opacity: .7;
+    height: 380px;
+    top: 20px;
+    position: relative;
+    width: 50%;
+    border-radius: 40px;
+}
+
+.box-left h2 {
+    font: 900 50px '';
+    margin: 50px 40px 40px;
+}
+
+.box-left span {
+    display: block;
+    color: #999;
+    font-style: 14px;
+    margin: 40px;
+    font-size: 26px;
+    line-height: 50px;
+}
+
+.box-right {
+    background-color: #474a59;
+    box-shadow: 0 0 40px 16px rgba(0, 0, 0, .2);
+    color: #f1f1f2;
+    width: 50%;
+}
+
+.form {
+    margin: 40px;
+    position: absolute;
+    padding-top: 100px;
+}
+
+label {
+    color: #c2c2c5;
+    display: block;
+    font-size: 18px;
+    height: 16px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+input {
+    background: transparent;
+    border: 0;
+    color: #f2f2f2;
+    font-style: 20px;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    outline: none limportant;
+}
+
+label::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 52px;
+    width: 100%;
+    height: 3px;
+    background-image: linear-gradient(to right, #44ffff, #b888ff);
+}
+
+#submit {
+    color: #fff;
+    margin-top: 40px;
+    padding:0 10px;
+    width: 100px;
+    height: 35px;
+    font-size: 24px;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 20px;
+    font: right;
+    transition: .3s;
+    cursor: pointer;
+}
+
+#submit:hover {
+    color: #000;
+    background-color: #fff;
+}
+
+.wbb {
+    width: 1519.2px;
+    height: 100px;
+    background-color: blanchedalmond;
+    color: black;
+    font-size: 25px;
+    padding-top: 40px;
+}

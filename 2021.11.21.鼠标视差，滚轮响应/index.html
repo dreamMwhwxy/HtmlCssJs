@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝 & 山羊の设计小窝</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: linear-gradient(to bottom, rgb(86, 71, 117), #000, #000);
+        }
+
+        .shell {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .content {
+            width: 100%;
+            height: 100%;
+            position: relative
+        }
+
+        .content h2 {
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            transform: translate(-50%);
+            z-index: 999;
+            margin-top: 300px;
+            color: rgba(255, 255, 255, 0.9);
+            -webkit-text-stroke: #000 2px;
+            font: 600 100px '优设标题黑';
+        }
+
+        .images {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            overflow: hidden;
+        }
+
+        .images div {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            position: absolute;
+        }
+
+        .img1 {
+            background-image: url('./image/1.png');
+        }
+
+        .img2 {
+            background-image: url('./image/2.png');
+        }
+
+        .img3 {
+            background-image: url('./image/3.png');
+        }
+
+        .img4 {
+            background-image: url('./image/4.png');
+        }
+
+        .img5 {
+            background-image: url('./image/5.png');
+        }
+
+        .img6 {
+            background-image: url('./image/6.png');
+            transform: translate(600px,400px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <div class="content">
+            <h2>Slide down<br />︾</h2>
+            <div class="images">
+                <div class="img1"></div>
+                <div class="img2"></div>
+                <div class="img3"></div>
+                <div class="img4"></div>
+                <div class="img5"></div>
+                <div class="img6"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let img1 = document.querySelector('.img1')
+        let img3 = document.querySelector('.img3')
+        let img4 = document.querySelector('.img4')
+        let img5 = document.querySelector('.img5')
+        // 设置鼠标移动时触发的效果
+        document.addEventListener('mousemove',e=>{
+            // 获取鼠标的位置
+            let mouseX = e.clientX
+            let mouseY = e.clientY
+            // 获取图片距离左侧和顶部的距离
+            let img1x = img1.offsetLeft
+            let img1y = img1.offsetTop
+
+            let img3x = img3.offsetLeft
+            let img3y = img3.offsetTop
+
+            let img4x = img4.offsetLeft
+            let img4y = img4.offsetTop
+
+            let img5x = img5.offsetLeft
+            let img5y = img5.offsetTop
+            // 设置移动时的偏移量
+            let diff1x = (mouseX-img1x)/45
+            let diff1y = (mouseY-img1y)/45
+
+            let diff3x = (mouseX-img3x)/18
+            let diff3y = (mouseY-img3y)/18
+
+            let diff4x = (mouseX-img4x)/30
+            let diff4y = (mouseY-img4y)/30
+
+            let diff5x = (mouseX-img5x)/8
+            let diff5y = (mouseY-img5y)/8
+
+            img1.style.transform = `translate(${diff1x}px,${diff1y}px)`
+            img3.style.transform = `translate(${diff3x}px,${diff3y}px)`
+            img4.style.transform = `translate(${diff4x}px,${diff4y}px)`
+            img5.style.transform = `translate(${diff5x}px,${diff5y}px)`
+        })
+    </script>
+</body>
+
+</html>

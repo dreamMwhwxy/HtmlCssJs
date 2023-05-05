@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+            background-size: cover;
+        }
+
+        .shell {
+            width: 1700px;
+            margin: 0 auto;
+            margin-top: 5rem;
+            height: 750px;
+            display: flex;
+        }
+
+        .card {
+            flex-basis: 13%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:not(:nth-child(1)) {
+            margin-left: 20px;
+        }
+
+        .card:hover {
+            overflow: initial;
+        }
+
+        .box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: all .1s cubic-bezier(0.165, 0.84, 0.44, 1);
+            overflow: hidden;
+            border-radius: 10px;
+            background-image: linear-gradient(180deg, #a18cd1, #fcaae55c, #141414ce);
+        }
+
+        .box>img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, 10%) scale(3);
+            position: relative;
+            z-index: -1;
+        }
+
+        .card:hover>.box img {
+            opacity: 0;
+        }
+
+
+        .card:hover>.box {
+            transform: scaleY(1.5);
+            background-image: initial;
+            background-color: #7d419f;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .card>h4 {
+            position: absolute;
+            display: block;
+            width: 120px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.2);
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -35%);
+            font-size: 28px;
+            z-index: 100;
+            transition: .2s;
+        }
+
+        .card:hover h4 {
+            color: #fff;
+            transform: translate(-50%, 250%);
+        }
+
+        .card:hover .character>img {
+            opacity: 1;
+        }
+
+        .card>.character {
+            position: absolute;
+            top: -100px;
+            left: -400px;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
+
+        }
+
+        .character>img {
+            width: 820px;
+            height: 820px;
+            object-fit: contain;
+            opacity: 0;
+            transition: all .3s;
+            position: relative;
+            z-index: -10;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <div class="card">
+            <div class="box">
+                <img src="./img/1.png" />
+            </div>
+            <div class="character">
+                <img src="./img/1.png" />
+            </div>
+            <h4>凝光</h4>
+        </div>
+        <div class="card">
+            <div class="box">
+                <img src="./img/3.png" />
+            </div>
+            <div class="character">
+                <img src="./img/3.png" />
+            </div>
+            <h4>多莉</h4>
+        </div>
+        <div class="card">
+            <div class="box">
+                <img src="./img/4.png" />
+            </div>
+            <div class="character">
+                <img src="./img/4.png" />
+            </div>
+            <h4>刻晴</h4>
+        </div>
+        <div class="card">
+            <div class="box">
+                <img src="./img/5.png" />
+            </div>
+            <div class="character">
+                <img src="./img/5.png" />
+            </div>
+            <h4>七七</h4>
+        </div>
+        <div class="card">
+            <div class="box">
+                <img src="./img/6.png" />
+            </div>
+            <div class="character">
+                <img src="./img/6.png" />
+            </div>
+            <h4>纳西妲</h4>
+        </div>
+        <div class="card">
+            <div class="box">
+                <img src="./img/8.png" />
+            </div>
+            <div class="character">
+                <img src="./img/8.png" />
+            </div>
+            <h4>雷电将军</h4>
+        </div>
+        <div class="card">
+            <div class="box">
+                <img src="./img/7.png" />
+            </div>
+            <div class="character">
+                <img src="./img/7.png" />
+            </div>
+            <h4>可莉</h4>
+        </div>
+        
+        <div class="card">
+            <div class="box">
+                <img src="./img/10.png" />
+            </div>
+            <div class="character">
+                <img src="./img/10.png" />
+            </div>
+            <h4>芭芭拉</h4>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .a{
+            height: 160px;
+            position: relative;
+            overflow: hidden;
+        }
+        .a>div{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            --offset:0px;
+            --blur:0px;
+        }
+        .a>div>img{
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit:cover;
+
+            transform: translateX(var(--offset));
+            filter: blur(var(--blur));
+        }
+        .b{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            
+        }
+        .c{
+            width:3000px;
+            height: 160px;
+            background-size:cover;
+            background-image: url("c7a1dbf9bbc09c1f867b14a141c4e2f07c4b228d.png");
+        }
+    </style>
+</head>
+<body>
+        <div class="a">
+            <div class="layer"><img src="bg.png"
+                    data-height="250" data-width="3000" height="290" width="3483"
+                    style="filter: blur(4px); transform: translate(0px, 0px) rotate(0deg);"></div>
+            <div class="layer"><img src="girl1.png"
+                    data-height="275" data-width="3000" height="191" width="2090"
+                    style="transform: translate(0px, 0px) rotate(0deg); filter: blur(0px);"></div>
+            <div class="layer"><img src="grassland.png"
+                    data-height="250" data-width="3000" height="290" width="3483"
+                    style="transform: translate(-58.0645px, 0px) rotate(0deg); filter: blur(1px);"></div>
+            <div class="layer"><img src="leaf.png"
+                    data-height="250" data-width="3000" height="174" width="2090"
+                    style="transform: translate(0px, 4.87742px) rotate(0deg); filter: blur(4px);"></div>
+            <div class="layer"><img src="mushroom.png"
+                    data-height="275" data-width="3000" height="191" width="2090"
+                    style="transform: translate(0px, -2.09032px) rotate(0deg); filter: blur(5px);"></div>
+            <div class="layer"><img src="spirit.png"
+                    data-height="275" data-width="3000" height="207" width="2264"
+                    style="filter: blur(6px); transform: translate(0px, 0px) rotate(0deg);"></div>
+        </div>
+        <div class="b">
+            <div class="c"></div>
+        </div>
+    <script>
+        //获取元素
+const container = document.querySelector('.a');
+const b = document.querySelector('.b');
+const imgs = document.querySelectorAll('img');
+container.addEventListener('mouseenter', function (e) {
+    this.x = e.clientX;
+    imgs.forEach(item => {
+        item.style.transition = 'none';
+    });
+});
+container.addEventListener('mousemove', function (e) {
+    this._x = e.clientX;
+    let disX = this._x - this.x;
+    const blur_0 = Math.abs(4 + 4 * disX / 1920);
+    imgs[0].style.filter = `blur(${blur_0}px)`;
+    const blur_1 = Math.abs(10 * disX / 1920);
+    const translateX_1 = 10 * disX / 1920;
+    imgs[1].style.filter = `blur(${blur_1}px)`;
+    imgs[1].style.transform = `translate(${translateX_1}px, 0px) rotate(0deg)`;
+    const blur_2 = Math.abs(1 - 5 * disX / 1920);
+    const translateX_2 = -58 + 10 * disX / 1920;
+    imgs[2].style.filter = `blur(${blur_2}px)`;
+    imgs[2].style.transform = `translate(${translateX_2}px, 0px) rotate(0deg)`;
+    const blur_3 = Math.abs(4 - 10 * disX / 1920);
+    const translateX_3 = 42 * disX / 1920;
+    imgs[3].style.filter = `blur(${blur_3}px)`;
+    imgs[3].style.transform = `translate(${translateX_3}px, 4.87742px) rotate(0deg)`;
+    const blur_4 = Math.abs(5 - 10 * disX / 1920);
+    const translateX_4 = 91 * disX / 1920;
+    imgs[4].style.filter = `blur(${blur_4}px)`;
+    imgs[4].style.transform = `translate(${translateX_4}px, -2.09032px) rotate(0deg)`;
+    const blur_5 = Math.abs(6 - 6 * disX / 1920);
+    const translateX_5 = 114 * disX / 1920;
+    imgs[5].style.filter = `blur(${blur_5}px)`;
+    imgs[5].style.transform = `translate(${translateX_5}px, 0px) rotate(0deg)`;
+})
+container.addEventListener('mouseleave', function () {
+    imgs.forEach(item => {
+        item.style.transition = 'all 0.5s';
+    });
+    //样式清空
+    imgs[0].style.filter = 'blur(4px)';
+    imgs[0].style.transform = 'translate(0px, 0px) rotate(0deg)';
+ 
+    imgs[1].style.filter = 'blur(0px)';
+    imgs[1].style.transform = 'translate(0px, 0px) rotate(0deg)';
+ 
+    imgs[2].style.filter = 'blur(1px)';
+    imgs[2].style.transform = 'translate(-58.0645px, 0px) rotate(0deg)';
+ 
+    imgs[3].style.filter = 'blur(4px)';
+    imgs[3].style.transform = 'translate(0px, 4.87742px) rotate(0deg)';
+ 
+    imgs[4].style.filter = 'blur(5px)';
+    imgs[4].style.transform = 'translate(0px, -2.09032px) rotate(0deg)';
+ 
+    imgs[5].style.filter = 'blur(6px)';
+    imgs[5].style.transform = 'translate(0px, 0px) rotate(0deg)';
+});
+ 
+//启动定时器 眨眼睛效果
+setInterval(() => {
+    setTimeout(() => {
+        imgs[1].src = 'girl1.png';
+    });
+ 
+    setTimeout(() => {
+        imgs[1].src = 'girl2.png';
+    }, 100);
+ 
+    setTimeout(() => {
+        imgs[1].src = 'girl3.png';
+    }, 200);
+ 
+    setTimeout(() => {
+        imgs[1].src = 'girl4.png';
+    }, 300);
+
+    setTimeout(() => {
+        imgs[1].src = 'girl1.png';
+    }, 400);
+}, 3000);
+    </script>
+</body>
+</html>

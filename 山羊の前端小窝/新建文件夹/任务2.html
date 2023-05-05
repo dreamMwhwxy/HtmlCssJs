@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .as{
+            display: flex;
+            flex-direction: column;
+        }
+        input{
+            outline: none;
+            width: 150px;
+            margin: 5px 0px;
+        }
+        .ac{
+            width: 160x;
+            display: flex;
+            justify-content:space-between;
+        }
+        .e{
+            width: 100px;
+            font-size: 12px;
+        }
+        .f{
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="as">
+        <input type="text" class="a" placeholder="手机号码" value="">
+        <input type="text" class="b" placeholder="请输入手机验证码">
+        <input type="text" class="c" placeholder="密码" value="">
+        <input type="text" class="d" placeholder="确认密码">
+        <div class="ac">
+            <input type="button" class="e" value="发送手机验证码">
+            <input type="button" class="f" value="注册">
+        </div>
+        
+    </div>
+    <script>
+        var as = document.getElementsByTagName("input")
+        
+        var e = document.querySelector(".e")
+        var f = document.querySelector(".f")
+        e.onclick = function(){
+            var a = document.querySelector('.a').value;
+            if(!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(a))){ 
+                alert("手机号码有误，请重填");  
+                return false; 
+            } 
+        }        
+
+        f.onclick = function(){
+            var c = document.querySelector('.c').value;
+            var d = document.querySelector('.d').value;
+            if(c.length<6|c.length>12){
+                alert("密码长度要在6-12之间")
+            }
+            if(c != d){
+                    alert("密码不一致")
+            }
+        }
+    </script>
+</body>
+</html>

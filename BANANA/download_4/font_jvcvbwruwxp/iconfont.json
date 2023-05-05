@@ -1,0 +1,23 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "18175440",
+      "name": "单箭头,长箭头,下",
+      "font_class": "arrow-down",
+      "unicode": "ea64",
+      "unicode_decimal": 60004
+    },
+    {
+      "icon_id": "18175505",
+      "name": "单箭头,长箭头,上",
+      "font_class": "arrow-up",
+      "unicode": "ea67",
+      "unicode_decimal": 60007
+    }
+  ]
+}

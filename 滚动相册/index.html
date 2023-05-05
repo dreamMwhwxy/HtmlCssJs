@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <style>
+        /* CSS部分 */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* 设置滚动条 */
+        ::-webkit-scrollbar {
+            width: 1px;
+            height: 1px;
+        }
+
+        .images img {
+            border: #fff solid 10px;
+            max-width: 45vh;
+            max-height: 50vh;
+            transition: .5s;
+        }
+
+        .images:hover img {
+            box-shadow: 0 10px 30px #86c4f7;
+            transform: scale(1.05);
+        }
+
+        /* 创建一个水平滚动的包裹容器，用于展示内容 */
+        .shell {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100vh;
+            /*旋转90度，向上平移一个视口高度的距离 */
+            transform: rotate(-90deg) translate3d(0, -100vh, 0);
+            /* 设置变换的原点为右上角 */
+            transform-origin: right top;
+            overflow-x: hidden;
+            height: 100vw;
+            /* 设置3D透视效果 */
+            perspective: 1px;
+            transform-style: preserve-3d;
+        }
+
+        /* 创建一个图片容器，用于展示图片 */
+        .images {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* 设置最小高度为视口高度的40% */
+            min-height: 40vh;
+            /* 设置变换的原点为中心点 */
+            transform-origin: 50% 50%;
+            /* 旋转90度，向前平移0.1px，放大1.1倍，向右平移0px，向下平移2vh */
+            transform: rotate(90deg) translateZ(.1px) scale(1.1) translateX(0px) translateY(2vh);
+            transition: 1s;
+        }
+
+        .slower {
+            transform: rotate(90deg) translateZ(-.12px) scale(1.3) translateX(0%) translateY(-8vh);
+        }
+
+        .slower1 {
+            transform: rotate(90deg) translateZ(-.25px) scale(1.35) translateX(0%) translateY(2vh);
+        }
+
+        .slower-down {
+            transform: rotate(90deg) translateZ(-.1px) scale(1) translateX(0%) translateY(16vh);
+        }
+
+        .faster {
+            transform: rotate(90deg) translateZ(-.05px) scale(1.1) translateX(0%) translateY(15vh);
+        }
+
+        .faster1 {
+            transform: rotate(90deg) translateZ(.05px) scale(1.4) translateX(0%) translateY(10vh);
+        }
+
+        .fastest {
+            transform: rotate(90deg) translateZ(.22px) scale(0.7) translateX(-10vh) translateY(-15vh);
+        }
+
+        .vertical {
+            transform: rotate(90deg) translateZ(-.1px) scale(1.6) translateX(0%) translateY(-3vh);
+        }
+    </style>
+</head>
+<!-- HTML部分 -->
+
+<body>
+    <div class="shell">
+        <div class="images slower">
+            <img src="./img/1.png">
+        </div>
+        <div class="images faster">
+            <img src="./img/2.png">
+        </div>
+        <div class="images vertical">
+            <img src="./img/3.png">
+        </div>
+        <div class="images slower-down">
+            <img src="./img/4.png">
+        </div>
+        <div class="images">
+            <img src="./img/5.png">
+        </div>
+        <div class="images slower">
+            <img src="./img/6.png">
+        </div>
+        <div class="images faster1">
+            <img src="./img/7.png">
+        </div>
+        <div class="images slower1">
+            <img src="./img/8.png">
+        </div>
+        <div class="images">
+            <img src="./img/9.png">
+        </div>
+        <div class="images slower">
+            <img src="./img/10.png">
+        </div>
+        <div class="images faster">
+            <img src="./img/11.png">
+        </div>
+    </div>
+    <!-- bilibili-山羊の前端小窝 -->
+</body>
+
+</html>

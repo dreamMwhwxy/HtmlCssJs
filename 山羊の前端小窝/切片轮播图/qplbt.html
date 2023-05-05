@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊の前端小窝</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: rgba(206, 182, 182, 0.637);
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .a {
+            position: relative;
+            width: 650px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .b {
+            width: 400px;
+            height: 500px;
+            transition: .4s;
+            background-size: cover;
+        }
+
+        .c {
+            width: 200px;
+            height: 500px;
+            display: flex;
+            /* 纵向布局 */
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .d {
+            position: relative;
+            width: 200px;
+            height: 90px;
+            right: 0;
+            transition: .5s;
+            overflow: hidden;
+        }
+
+        .d img {
+            position: absolute;
+            width: 200px;
+            /* 小图片上移 */
+            transform: translate(0, -50px);
+            transition: .5s;
+            right: 0;
+        }
+
+        .d.dd {
+            opacity: 0;
+            right: 250px;
+        }
+
+        .d:hover img {
+            opacity: 0;
+            right: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a">
+        <div class="b"></div>
+        <div class="c">
+            <div class="d dd"><img src="1.jpg" alt=""></div>
+            <div class="d"><img src="2.jpg" alt=""></div>
+            <div class="d"><img src="3.jpg" alt=""></div>
+            <div class="d"><img src="4.jpg" alt=""></div>
+            <div class="d"><img src="5.jpg" alt=""></div>
+        </div>
+    </div>
+    <script>
+        // 获取左边大图的元素
+        let b = document.querySelector(".b")
+        // 获取右边小图的所有元素
+        let d = document.getElementsByClassName("d")
+
+        let time
+        let index = 0
+
+        // 设置一个重置函数
+        let a = function () {
+            for (let i = 0; i < d.length; i++) {
+                d[i].className = "d"
+            }
+        }
+        // 设置一个选中函数
+        let aa = function () {
+            // 先代入重置函数
+            a()
+            d[index].className = "d dd"
+        }
+        // 设置启动轮播图的时间函数
+        function ts() {
+            time = setInterval(function () {
+                aa()
+                index++
+                b.style.backgroundImage = "url('" + [index] + ".jpg')"
+                if (index == 5) {
+                    index = 0
+                }
+            }, 1500);
+        }
+        for (let i = 0; i < d.length; i++) {
+            // 鼠标移动到当前小图片上时触发
+            d[i].onmousemove = function () {
+                // 鼠标移动到当前小图片时右边大图片变成当前的小图片
+                b.style.backgroundImage = "url('" + [i + 1] + ".jpg')"
+                // 鼠标移动到小图片上面时关闭定时器并重置定时，
+                // 鼠标移开后再继续执行
+                a()
+                clearInterval(time)
+                index = i + 1
+                ts()
+            }
+        }
+        // 执行轮播图
+        ts()
+    </script>
+</body>
+
+</html>

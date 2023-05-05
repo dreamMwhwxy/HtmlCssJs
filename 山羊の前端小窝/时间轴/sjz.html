@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(164, 170, 206);
+        }
+        .wrap{
+            width: 1000px;
+            position: relative;
+            top: 100px;
+        }
+        .wrap::after{
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            width: 5px;
+            z-index: -999;
+            height: 1000px;
+            background-color: rgba(255,255,255,.5);
+        }
+        .box{
+            position: relative;
+            width: 100%;
+            height: 120px;
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .left,.right{
+            position: relative;
+            width: 40%;
+            height: 120px;
+            border-radius: 15px;
+            text-align: center;
+            color: rgb(90, 90, 90);
+            /* background-color: rgba(255,255,255,.5); */
+        }
+        .box:nth-child(even) .left{
+            background-color: rgba(255,255,255,.4);
+            box-shadow: 0 0 10px rgba(0,0,0,.3);
+        }
+        .box:nth-child(odd) .right{
+            background-color: rgba(255,255,255,.4);
+            box-shadow: 0 0 10px rgba(0,0,0,.3);
+        }
+        .center{
+            width: 15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .center>span{
+            width: 120px;
+            border-radius: 10px;
+            text-align:center;
+            font: 900 24px '';
+            line-height: 50px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box">
+            <div class="left"></div>
+            <div class="center"><span>
+                2017
+            </span></div>
+            <div class="right">Hazy I do not know what to do, day and night miss the people I like, confusion has become my biggest enemy, let me continue to degenerate
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="left">I gradually became addicted to the game world, trying to come true, but the pressure of learning and social society pulled me back again, tormenting me constantly
+            </div>
+            <div class="center"><span>
+                2018
+            </span></div>
+            <div class="right"></div>
+        </div>
+
+        <div class="box">
+            <div class="left"></div>
+            <div class="center"><span>
+                2019
+            </span></div>
+            <div class="right">Depression and loneliness occupied me, in a casual attempt to fitness can release introverted depression, so I fell in love with fitness, determined to go on
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="left">Fitness let me out of depression, tearing pain can let me feel I'm still alive, make me stand up in the swamp, I began a self-discipline life
+            </div>
+            <div class="center"><span>
+                2020
+            </span></div>
+            <div class="right"></div>
+        </div>
+
+        <div class="box">
+            <div class="left"></div>
+            <div class="center"><span>
+                2021
+            </span></div>
+            <div class="right">Self discipline fascinates me with learning. I need to be strong, I need to be respected by others, and I need money</div>
+        </div>
+    </div>
+</body>
+</html>

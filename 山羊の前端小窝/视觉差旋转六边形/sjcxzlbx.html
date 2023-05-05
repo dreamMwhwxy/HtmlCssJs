@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: rgb(242, 212, 212);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .a{
+            position: relative;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            background-color: rgb(47, 58, 52);
+        }
+        .a>div{
+            position: absolute;
+            border: 3px solid #fff;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: rgb(189, 218, 231);
+            transform: translate(-3px,-3px);
+            transition: .4s;
+            transition-delay: .2s;
+            
+        }
+        .a:hover>div{
+            transition-delay: calc(var(--m)*.05s);
+            margin: -2px;
+            margin-top: calc(var(--i)*14px);
+            margin-left: calc(var(--s)*14px);
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.356);
+        }
+        .a>div:hover{
+            background-color: teal;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+        <div class="b" style="--m:1;--i:-6.6;--s:0"></div>
+        <div class="c" style="--m:2;--i:-3.3;--s:6"></div>
+        <div class="d" style="--m:3;--i:3.3;--s:6"></div>
+        <div class="e" style="--m:4;--i:6.6;--s:0"></div>
+        <div class="f" style="--m:5;--i:3.3;--s:-6"></div>
+        <div class="g" style="--m:6;--i:-3.3;--s:-6"></div>
+    </div>
+    <script>
+        
+    </script>
+</body>
+</html>

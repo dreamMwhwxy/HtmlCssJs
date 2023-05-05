@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../CSS/reset.css">
+    <link rel="stylesheet" href="../../CSS/ym.css">
+    <title>陳山羊/3D旋转卡片</title>
+    <style>
+        body{
+            background-color: rgb(60,60,70);
+            display: flex;
+            justify-content: center;
+            perspective: 1000px;
+        }
+        .a{
+            width: 300px;
+            height: 400px;
+            position: relative;
+            top: 100px;
+        }
+        .a:hover .b{
+            transform: rotateY(180deg);
+        }
+        .b{
+            width: 300px;
+            height: 400px;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            transform-style: preserve-3d;
+            background-image: url("1.gif");
+            transition: 1.5s;
+            box-shadow: 0 0 20px #000;
+        }
+        .c,.d{
+            position: absolute;
+            color: rgba(255,255,255,.8);
+            font:900 60px '';
+            /* 设置字体间距 */
+            letter-spacing: 10px;
+            line-height: 400px;
+        }
+        .c{ 
+            transform:translateZ(70px);
+        }
+        .d{
+            transform:translateZ(-70px) rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="a">
+        <div class="b">
+            <span class="c">GOAT</span>
+            <span class="d">CSY</span>
+        </div>
+    </div>
+</body>
+</html>

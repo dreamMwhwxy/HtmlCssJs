@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山羊</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .b{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            height: 30vh;
+            overflow: hidden;
+        }
+        .b>img{
+            width: 150vw;
+            position: absolute;
+            transform: translate(0px,0) rotate(0);
+            transition: 0;
+        }
+        .b>img:nth-child(2){
+            bottom: 2vh;
+            z-index: -999;
+        }
+        .b>img:nth-child(3){
+            width: 20vw;
+            right: 10px;
+            bottom: 2.2vh;
+            z-index: -99;
+        }
+        .b>img:nth-child(4){
+            bottom: 2vh;
+            right: -70vw;
+            z-index: 9999;
+            width: 100vw;
+        }
+        .b>img:nth-child(5){
+            width: 20vw;
+            left: 10vw;
+            bottom: 3vh;
+        }
+        .b>img:nth-child(6){
+            width: 90vw;
+            left: 100vw;
+            bottom: 2vh;
+        }
+        .b>img:nth-child(7){
+            width: 5vw;
+            right: -10vw;
+            bottom: 4vh;
+            z-index: 99999;
+        }
+        .b>img:nth-child(8){
+            width: 30vw;
+            bottom: 2vh;
+            right: 20vw;
+            z-index: 99999;
+        }
+        .b>img:nth-child(9){
+            width: 170vw;
+            right: -50vw;
+            bottom: 1.8vh;
+            z-index: 99;
+        }
+        .b>img:nth-child(10){
+            width: 200vw;
+            z-index: -999;
+        }
+        .b>img:nth-child(11){
+            width: 130vw;
+            left: -80vw;
+            bottom: 2vh;
+            z-index: 9;
+        }
+        .b>img:nth-child(12){
+            width: 13vw;
+            right: -5vw;
+            bottom: 4vh;
+            z-index: 99;
+        }
+    </style>
+</head>
+<body>
+    <div class="as">
+
+    </div>
+    <div class="b">
+        <img src="c7a1dbf9bbc09c1f867b14a141c4e2f07c4b228d.png">
+        <img src="4d5ddb371f6d710cf0222a5d0cef46ea3ed5901c.png">
+        <img src="4d8514308bd6673b215cdb1aadbf12891d784672.png">
+        <img src="6a6e6e52a18a7731645aa1d93b1d74f2f628f77a.png">
+        <img src="8d947f22c6a67b8a5d2fbe1424ca2a946802e729.png">
+        <img src="963685e7d82d27ba5e8187680814a2d548b5adbe.png">
+        <img src="9af4cdc3c81e01522fc4df82a5b7cfa8b03b6b5b.png">
+        <img src="b24c872ae1ef34ebe794d1631a50b57fbdb0a482.png">
+        <img src="9b4f18f9f18c8dca17ba6c0b46a1dcedb649c82b.png">
+        <img src="c12c6ceaa5f78de17cd94bb0ad325339b2386ee8.png">
+        <img src="d605a7076d5fe89d0d7e3d6219bffe4000033a09.png">
+        <img src="3969636231e7668ec91985bb147c89a6b69021c7.png">
+        
+    </div>
+    <script>
+        const b = document.querySelector(".b")
+        const imgs = document.querySelectorAll('img')
+        b.addEventListener('mouseenter', function (e) {
+            //获取鼠标在移入时的偏移
+            this.x = e.clientX;
+            //移除过渡效果
+            for(let i = 0;i<imgs.length;i++){
+                imgs[i].style.transition = 'none'
+            }
+        });
+        b.addEventListener('mousemove',function(e){
+            this._x = e.clientX
+            disx = this._x - this.x
+            const move0 =  disx / -8;
+            const move1 =  disx / -4;
+            const move2 =  disx / -6;
+            const move3 =  disx / -2;
+            const move4 =  disx / -9;
+            const move5 =  disx / -1;
+            const move6 =  disx / -1.7;
+            const move7 =  disx / -1;
+            const move8 =  disx / -1;
+            const move9 =  disx / -5;
+            const move10 =  disx / -2;
+            const move11 =  disx / -2;
+            const sss = [move0,move1,move2,move3,move4,move5,move6,move7,move8,move9,move10,move11]
+            for(let i = 0;i<sss.length;i++){
+                imgs[i].style.transform = `translate(${sss[i]}px, 0px) rotate(0deg)`;
+            }
+        })
+        b.addEventListener('mouseleave', function () {
+            for(let i = 0;i<imgs.length;i++){
+                imgs[i].style.transition = .5+'s'
+                imgs[i].style.transform = 'translate(0px,0) rotate(0deg)'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陳山羊/旋转波浪框</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            background-color: #000;
+        }
+        .a{
+            position: relative;
+            top: 100px;
+            width: 320px;
+            height: 320px;
+            display: flex;
+            justify-content: center;
+        }
+        .b{
+            transition: .7s;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid #fff;
+            /* 这里设置不规则边框，值可以自己随机调 */
+            border-radius: 38% 62% 63% 37%/ 41% 44% 56% 59%;
+            animation: b 10s infinite linear;
+
+        }
+        .b::after,.b::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px #fff solid;
+            transition: .7s;
+            border-radius: 38% 62% 63% 37%/ 41% 44% 56% 59%;
+            animation: b 8s infinite linear;
+        }
+        .b::before{
+            animation: b 6s infinite linear;
+        }
+        @keyframes b{
+            0%{
+                transform: rotateZ(0);
+            }
+            100%{
+                transform: rotateZ(360deg);
+            }
+        }
+        .a:hover .b,
+        .a:hover .b::before,
+        .a:hover .b::after{
+            background-color: rgba(255,255,255,.3);
+        }
+        .c{
+            font-size: 40px;
+            color: black;
+            font-weight: 900;
+            /* 给文字添加白边框 */
+            -webkit-text-stroke: 1px #fff;
+            line-height: 200px;
+        }
+        .d{
+            position: absolute;
+            width: 160px;
+            height: 80px;
+            top: 150px;
+            border: #fff 3px solid;
+            background-image: url("nk.gif");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+        <div class="b"></div>
+        <span class="c">GOAT</span>
+        <div class="d"></div>
+    </div>
+</body>
+</html>

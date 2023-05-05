@@ -1,0 +1,8 @@
+<i class="iconfont icon-liebiao"></i><span>list</span>
+<i class="iconfont icon-cangku"></i><span> Warehouse</span>
+<i class="iconfont icon-zhuti_tiaosepan"></i><span>theme</span>
+<i class="iconfont icon-qianbao"></i><span>wallet</span>
+<i class="iconfont icon-tupian"></i><span>picture</span>
+<i class="iconfont icon-erweima"></i><span>QR code</span>
+<i class="iconfont icon-dunpaibaoxianrenzheng"></i><span>authentication</span>
+<i class="iconfont icon-dengchu"></i><span>cancellation</span>
